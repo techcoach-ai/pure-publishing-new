@@ -14,7 +14,7 @@
 :root {
   /* Colours */
   --colour-bg: #ffffff;
-  --colour-bg-soft: #f7f5f2;
+  --colour-bg-soft: #D4F5E9;
   --colour-bg-dark: #0f0f0f;
   --colour-primary: #1A1A5E;
   --colour-primary-dark: #0d0d3a;
@@ -639,7 +639,7 @@ body.nav-open {
 }
 
 .grad-warm {
-  background: linear-gradient(135deg, #f7f5f2 0%, #e8e4de 100%);
+  background: linear-gradient(135deg, #D4F5E9 0%, #b8ead6 100%);
 }
 
 .grad-aurora {
