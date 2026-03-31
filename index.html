@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Publishing — AI Consultancy &amp; Web Design | St Leonards-on-Sea</title>
+  <meta name="description" content="Pure Publishing helps small and medium businesses across East Sussex use AI to save time, reduce costs and grow — in plain English, no jargon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Fade-up animation for above-the-fold hero content ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Dark-hero nav: white text before scroll ── */
+    nav.site-nav:not(.scrolled) .nav-links a    { color: white; }
+    nav.site-nav:not(.scrolled) .nav-wordmark   { color: white !important; }
+    nav.site-nav:not(.scrolled) .hamburger span { background: white; }
+    nav.site-nav:not(.scrolled) .logo-bg        { fill: rgba(255,255,255,0.15); }
+    nav.site-nav:not(.scrolled) .logo-letter    { fill: white; }
+
+    /* ── Hero ── */
+    .hero-home {
+      background: linear-gradient(135deg, #0a0a2e 0%, #1a1a5e 45%, #2d2b8f 100%);
+    }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 640px; height: 640px;
+      background: #2d2b8f;
+      top: -180px; right: -60px;
+      opacity: 0.45;
+    }
+    .hero-orb-2 {
+      width: 380px; height: 380px;
+      background: #ff6b35;
+      bottom: -80px; left: 18%;
+      opacity: 0.18;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.45);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      animation: scrollBounce 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(9px); }
+    }
+
+    /* ── How It Works alternating rows ── */
+    .step-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+      padding: var(--space-xl) 0;
+    }
+    .step-row + .step-row { border-top: 1px solid var(--colour-border); }
+    .step-visual {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--colour-primary); color: white;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* ── Stats ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .stat-box {
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-num {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800; color: white; line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-desc { font-size: 0.9rem; color: rgba(255,255,255,0.65); font-family: 'Syne', sans-serif; }
+
+    /* ── Service hero cards ── */
+    .svc-card {
+      display: flex; flex-direction: column;
+      padding: var(--space-xl);
+      border-radius: var(--radius-lg);
+      min-height: 420px;
+      position: relative; overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      text-decoration: none; color: inherit;
+    }
+    .svc-card:hover { transform: translateY(-8px); box-shadow: var(--colour-card-shadow-hover); }
+    .svc-card-content { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; }
+    .svc-bg-dots {
+      position: absolute; inset: 0; opacity: 0.06;
+      background-image: radial-gradient(circle, white 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* ── CTA strip ── */
+    .cta-strip {
+      background: linear-gradient(135deg, #2d2b8f 0%, #1a1a5e 100%);
+      padding: var(--space-2xl) 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .step-row { grid-template-columns: 1fr; }
+      .step-row .step-visual { order: -1 !important; aspect-ratio: 16/9; }
+      .stats-row { grid-template-columns: 1fr; gap: var(--space-sm); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Pure Publishing — Home">
+      <svg class="logo-mark" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+        <rect class="logo-bg" width="40" height="40" rx="10" fill="#2d2b8f"/>
+        <rect class="logo-letter" x="7" y="9" width="3" height="22" rx="1.5" fill="white"/>
+        <path class="logo-letter" d="M10 9h5a5 5 0 0 1 0 10H10z" fill="white"/>
+        <rect class="logo-letter" x="21" y="9" width="3" height="22" rx="1.5" fill="white"/>
+        <path class="logo-letter" d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
+        <circle class="logo-accent" cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
+      </svg>
+      <span class="nav-wordmark" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="ai-consultancy.html">AI Consultancy</a></li>
+      <li><a href="web-design.html">Web Design</a></li>
+      <li><a href="projects.html">Recent Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="ai-consultancy.html">AI Consultancy</a>
+  <a href="web-design.html">Web Design</a>
+  <a href="projects.html">Recent Projects</a>
+  <a href="contact.html" class="mobile-nav-cta">Get in Touch</a>
+</div>
+
+<main>
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="hero hero-home">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+    </div>
+    <div class="container hero-content">
+      <p class="label" style="color:rgba(255,255,255,0.55);margin-bottom:var(--space-sm);animation:fadeUp .8s ease .15s both;">
+        AI Consultancy &amp; Web Design &nbsp;·&nbsp; St Leonards-on-Sea, East Sussex
+      </p>
+      <h1 class="display-xl text-light" style="max-width:840px;margin-bottom:var(--space-md);animation:fadeUp .8s ease .35s both;">
+        Your Business.<br>Smarter.<br>Powered by AI.
+      </h1>
+      <p class="body-lg" style="color:rgba(255,255,255,0.78);max-width:560px;margin-bottom:var(--space-lg);animation:fadeUp .8s ease .55s both;">
+        We help small and medium businesses across East Sussex and beyond get the most from artificial intelligence — in plain English, no jargon, no nonsense.
+      </p>
+      <div class="flex-gap" style="flex-wrap:wrap;animation:fadeUp .8s ease .75s both;">
+        <a href="ai-consultancy.html" class="btn btn-primary btn-lg">Explore AI Consultancy</a>
+        <a href="projects.html" class="btn btn-ghost btn-lg">See Our Work</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>scroll</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       THE BIG IDEA
+  ════════════════════════════════════════ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div style="max-width:720px;margin-bottom:var(--space-xl);">
+        <p class="label text-accent reveal" style="margin-bottom:var(--space-sm);">The Big Idea</p>
+        <h2 class="display-md reveal">AI isn't here to replace your team. It's here to make them unstoppable.</h2>
+      </div>
+      <div class="grid-3 stagger-children">
+
+        <div class="card reveal">
+          <div class="card-icon coral">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3 class="heading-sm" style="margin-bottom:var(--space-xs);">Save Hours Every Week</h3>
+          <p class="body-md text-muted">Automate the repetitive tasks eating your time — from email drafts and reports to customer queries and scheduling. Get back to the work that actually matters.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-icon indigo">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3 class="heading-sm" style="margin-bottom:var(--space-xs);">Make Smarter Decisions</h3>
+          <p class="body-md text-muted">Use AI to spot trends and opportunities you'd otherwise miss — with clear, actionable insights rather than overwhelming data you don't know what to do with.</p>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-icon sage">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="heading-sm" style="margin-bottom:var(--space-xs);">Talk to Your Customers Better</h3>
+          <p class="body-md text-muted">AI tools that help you respond faster and more personally — building loyalty, winning new enquiries, and keeping customers happy with far less effort.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       HOW IT WORKS
+  ════════════════════════════════════════ -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div style="text-align:center;max-width:580px;margin:0 auto var(--space-xl);">
+        <p class="label text-primary reveal" style="margin-bottom:var(--space-sm);">Our Approach</p>
+        <h2 class="display-md reveal">How it works</h2>
+        <p class="body-lg text-muted reveal" style="margin-top:var(--space-sm);">Three clear steps — no mystery, no complexity, no tech degree required.</p>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="step-row">
+        <div class="reveal-left">
+          <div class="step-num">1</div>
+          <p class="label text-accent" style="margin-bottom:var(--space-xs);">Discovery</p>
+          <h3 class="heading-lg" style="margin-bottom:var(--space-sm);">We listen first.</h3>
+          <p class="body-lg text-muted">We sit down — virtually or in person — and learn about your business, your daily challenges, and your goals. No assumptions, no pre-packaged solutions. Just a proper conversation about what you actually need.</p>
+        </div>
+        <div class="step-visual grad-placeholder grad-warm reveal-right" style="min-height:300px;">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true" style="opacity:.35;">
+            <circle cx="36" cy="28" r="14" stroke="#2d2b8f" stroke-width="3"/>
+            <path d="M14 62c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#2d2b8f" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-row">
+        <div class="step-visual grad-placeholder grad-indigo reveal-left" style="min-height:300px;order:-1;">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true" style="opacity:.45;">
+            <rect x="10" y="18" width="20" height="14" rx="4" stroke="white" stroke-width="3"/>
+            <rect x="42" y="18" width="20" height="14" rx="4" stroke="white" stroke-width="3"/>
+            <rect x="26" y="42" width="20" height="14" rx="4" stroke="white" stroke-width="3"/>
+            <path d="M20 32v8h32v-8" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="reveal-right">
+          <div class="step-num">2</div>
+          <p class="label text-accent" style="margin-bottom:var(--space-xs);">Strategy</p>
+          <h3 class="heading-lg" style="margin-bottom:var(--space-sm);">We find the right tools.</h3>
+          <p class="body-lg text-muted">No one-size-fits-all packages. We identify the AI tools that genuinely suit YOUR business, YOUR budget, and YOUR way of working — then explain exactly why each one makes sense for you.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-row">
+        <div class="reveal-left">
+          <div class="step-num">3</div>
+          <p class="label text-accent" style="margin-bottom:var(--space-xs);">Implementation</p>
+          <h3 class="heading-lg" style="margin-bottom:var(--space-sm);">We show you how.</h3>
+          <p class="body-lg text-muted">Hands-on training and ongoing support, in plain English. No tech degree required. We'll get you and your team confident and comfortable — and we stick around as AI keeps evolving.</p>
+        </div>
+        <div class="step-visual grad-placeholder grad-sage reveal-right" style="min-height:300px;">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true" style="opacity:.45;">
+            <path d="M14 50 L32 30 L46 42 L62 18" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="62" cy="18" r="5" fill="white" opacity=".8"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       WHY US
+  ════════════════════════════════════════ -->
+  <section class="section bg-primary">
+    <div class="container">
+      <div style="max-width:640px;margin-bottom:var(--space-xl);">
+        <p class="label reveal" style="color:rgba(255,255,255,0.55);margin-bottom:var(--space-sm);">Why Pure Publishing</p>
+        <h2 class="display-md text-light reveal">Local knowledge.<br>Real-world results.</h2>
+        <p class="body-lg reveal" style="color:rgba(255,255,255,0.78);margin-top:var(--space-md);">Based in St Leonards-on-Sea, we've been helping East Sussex businesses grow for years. Now we're bringing the power of AI to businesses just like yours — without the complexity, the jargon, or the eye-watering consultancy fees.</p>
+      </div>
+      <div class="stats-row stagger-children">
+        <div class="stat-box reveal">
+          <span class="stat-num" data-count="100" data-suffix="+">0</span>
+          <span class="stat-desc">Businesses helped</span>
+        </div>
+        <div class="stat-box reveal">
+          <span class="stat-num">East Sussex</span>
+          <span class="stat-desc">Based &amp; proud of it</span>
+        </div>
+        <div class="stat-box reveal">
+          <span class="stat-num">Plain English</span>
+          <span class="stat-desc">Always, guaranteed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SERVICES OVERVIEW
+  ════════════════════════════════════════ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:var(--space-xl);">
+        <p class="label text-accent reveal" style="margin-bottom:var(--space-sm);">What We Do</p>
+        <h2 class="display-md reveal">Two things. Done brilliantly.</h2>
+      </div>
+      <div class="grid-2 stagger-children">
+
+        <!-- AI Consultancy -->
+        <a href="ai-consultancy.html" class="svc-card reveal" style="background:linear-gradient(135deg,#2d2b8f 0%,#1a1a5e 100%);color:white;">
+          <div class="svc-bg-dots"></div>
+          <div class="svc-card-content">
+            <div class="card-icon coral" style="background:rgba(255,107,53,0.2);margin-bottom:var(--space-md);">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <p class="label" style="color:rgba(255,255,255,0.55);margin-bottom:var(--space-xs);">Primary Service</p>
+            <h3 class="heading-lg text-light" style="margin-bottom:var(--space-sm);">AI Consultancy</h3>
+            <p class="body-md" style="color:rgba(255,255,255,0.78);margin-bottom:var(--space-lg);flex:1;">We audit your business, identify the right AI tools, train your team, and support you ongoing. All in plain English, with no unnecessary complexity.</p>
+            <span class="btn btn-primary" style="align-self:flex-start;">Find Out More &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Web Design -->
+        <a href="web-design.html" class="svc-card reveal" style="background:var(--colour-bg-soft);border:1px solid var(--colour-border);">
+          <div class="svc-card-content">
+            <div class="card-icon indigo" style="margin-bottom:var(--space-md);">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+              </svg>
+            </div>
+            <p class="label text-muted" style="margin-bottom:var(--space-xs);">Secondary Service</p>
+            <h3 class="heading-lg" style="margin-bottom:var(--space-sm);">Web Design</h3>
+            <p class="body-md text-muted" style="margin-bottom:var(--space-lg);flex:1;">Clean, fast, effective websites that reflect your brand and work hard to bring in new business. Built properly, with care, and easy for you to manage.</p>
+            <span class="btn btn-secondary" style="align-self:flex-start;">Find Out More &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       CTA STRIP
+  ════════════════════════════════════════ -->
+  <section class="cta-strip">
+    <div class="container">
+      <p class="label reveal" style="color:rgba(255,255,255,0.55);margin-bottom:var(--space-sm);">Ready to start?</p>
+      <h2 class="display-md text-light reveal" style="margin-bottom:var(--space-md);">Ready to see what AI can do for your business?</h2>
+      <p class="body-lg reveal" style="color:rgba(255,255,255,0.78);max-width:480px;margin:0 auto var(--space-lg);">No commitment, no jargon. Just a friendly conversation about your business and how we can help.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg reveal">Get in Touch</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;">
+          <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.1)"/>
+            <rect x="7" y="9" width="3" height="22" rx="1.5" fill="white"/>
+            <path d="M10 9h5a5 5 0 0 1 0 10H10z" fill="white"/>
+            <rect x="21" y="9" width="3" height="22" rx="1.5" fill="white"/>
+            <path d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
+            <circle cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
+          </svg>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.01em;">Pure Publishing</span>
+        </a>
+        <p class="footer-tagline">Helping East Sussex businesses work smarter with AI.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="YouTube">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0f0f0f"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="ai-consultancy.html">AI Consultancy</a>
+        <a href="web-design.html">Web Design</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:hello@purepublishing.com">hello@purepublishing.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pure Publishing. St Leonards-on-Sea, East Sussex.</p>
+      <p>Designed with care in East Sussex.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
