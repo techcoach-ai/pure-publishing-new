@@ -18,8 +18,8 @@
   --colour-bg-dark: #0f0f0f;
   --colour-primary: #1A1A5E;
   --colour-primary-dark: #0d0d3a;
-  --colour-accent: #FF6B6B;
-  --colour-accent-hover: #e54f4f;
+  --colour-accent: #9CAF88;
+  --colour-accent-hover: #7a9366;
   --colour-sage: #9CAF88;
   --colour-text: #0F0F0F;
   --colour-text-muted: rgba(15, 15, 15, 0.6);
@@ -627,7 +627,7 @@ body.nav-open {
 }
 
 .grad-coral {
-  background: linear-gradient(135deg, #FF6B6B 0%, #ff4a4a 100%);
+  background: linear-gradient(135deg, #9CAF88 0%, #7a9366 100%);
 }
 
 .grad-night {
@@ -643,7 +643,7 @@ body.nav-open {
 }
 
 .grad-aurora {
-  background: linear-gradient(135deg, #1A1A5E 0%, #9CAF88 50%, #FF6B6B 100%);
+  background: linear-gradient(135deg, #1A1A5E 0%, #9CAF88 50%, #D4F5E9 100%);
 }
 
 /* ------------------------------------------------------------
@@ -1176,7 +1176,7 @@ footer.site-footer {
 }
 
 .text-gradient-warm {
-  background: linear-gradient(135deg, var(--colour-accent) 0%, #ffb347 100%);
+  background: linear-gradient(135deg, var(--colour-accent) 0%, #9CAF88 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
