@@ -16,17 +16,17 @@
   --colour-bg: #ffffff;
   --colour-bg-soft: #f7f5f2;
   --colour-bg-dark: #0f0f0f;
-  --colour-primary: #2d2b8f;
-  --colour-primary-dark: #1a1a5e;
-  --colour-accent: #ff6b35;
-  --colour-accent-hover: #e55a25;
-  --colour-sage: #7fb5a0;
-  --colour-text: #0f0f0f;
+  --colour-primary: #1A1A5E;
+  --colour-primary-dark: #0d0d3a;
+  --colour-accent: #FF6B6B;
+  --colour-accent-hover: #e54f4f;
+  --colour-sage: #9CAF88;
+  --colour-text: #0F0F0F;
   --colour-text-muted: rgba(15, 15, 15, 0.6);
   --colour-text-light: #ffffff;
-  --colour-border: rgba(45, 43, 143, 0.12);
-  --colour-card-shadow: 0 4px 24px rgba(45, 43, 143, 0.10);
-  --colour-card-shadow-hover: 0 12px 40px rgba(45, 43, 143, 0.18);
+  --colour-border: rgba(26, 26, 94, 0.12);
+  --colour-card-shadow: 0 4px 24px rgba(26, 26, 94, 0.10);
+  --colour-card-shadow-hover: 0 12px 40px rgba(26, 26, 94, 0.18);
 
   /* Typography */
   --font-display: 'Poppins', sans-serif;
@@ -500,12 +500,12 @@ body.nav-open {
 .btn-secondary {
   background: var(--colour-primary);
   color: white;
-  box-shadow: 0 4px 16px rgba(45, 43, 143, 0.2);
+  box-shadow: 0 4px 16px rgba(26, 26, 94, 0.2);
 }
 
 .btn-secondary:hover {
   background: var(--colour-primary-dark);
-  box-shadow: 0 8px 28px rgba(45, 43, 143, 0.3);
+  box-shadow: 0 8px 28px rgba(26, 26, 94, 0.3);
   color: white;
 }
 
@@ -570,7 +570,7 @@ body.nav-open {
 }
 
 .card-icon.indigo {
-  background: rgba(45, 43, 143, 0.08);
+  background: rgba(26, 26, 94, 0.08);
   color: var(--colour-primary);
 }
 
@@ -600,7 +600,7 @@ body.nav-open {
 }
 
 .badge-primary {
-  background: rgba(45, 43, 143, 0.10);
+  background: rgba(26, 26, 94, 0.10);
   color: var(--colour-primary);
 }
 
@@ -623,19 +623,19 @@ body.nav-open {
 }
 
 .grad-indigo {
-  background: linear-gradient(135deg, #2d2b8f 0%, #1a1a5e 100%);
+  background: linear-gradient(135deg, #1A1A5E 0%, #0d0d3a 100%);
 }
 
 .grad-coral {
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, #FF6B6B 0%, #ff4a4a 100%);
 }
 
 .grad-night {
-  background: linear-gradient(135deg, #0f0f0f 0%, #2d2b8f 100%);
+  background: linear-gradient(135deg, #0F0F0F 0%, #1A1A5E 100%);
 }
 
 .grad-sage {
-  background: linear-gradient(135deg, #7fb5a0 0%, #3d8c72 100%);
+  background: linear-gradient(135deg, #9CAF88 0%, #7a9366 100%);
 }
 
 .grad-warm {
@@ -643,7 +643,7 @@ body.nav-open {
 }
 
 .grad-aurora {
-  background: linear-gradient(135deg, #2d2b8f 0%, #7fb5a0 50%, #ff6b35 100%);
+  background: linear-gradient(135deg, #1A1A5E 0%, #9CAF88 50%, #FF6B6B 100%);
 }
 
 /* ------------------------------------------------------------
@@ -1386,7 +1386,7 @@ footer.site-footer {
   content: '';
   position: absolute;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(45,43,143,.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(26,26,94,.35) 0%, transparent 70%);
   top: -200px; right: -100px;
   pointer-events: none;
 }
@@ -1435,7 +1435,7 @@ footer.site-footer {
 }
 .mesh-bg::before {
   width: 700px; height: 700px;
-  background: rgba(45,43,143,.4);
+  background: rgba(26,26,94,.4);
   top: -200px; right: -100px;
   animation-duration: 14s;
 }
@@ -1599,7 +1599,7 @@ footer.site-footer {
 .price-card.featured {
   background: var(--colour-primary);
   color: white;
-  box-shadow: 0 20px 60px rgba(45,43,143,.4);
+  box-shadow: 0 20px 60px rgba(26,26,94,.4);
 }
 .price-card.featured .price-feature { color: rgba(255,255,255,.75); }
 .price-card.featured .price-feature::before { color: var(--colour-sage); }
