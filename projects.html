@@ -4,100 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recent Projects — Web Design &amp; AI Consultancy | Pure Publishing</title>
-  <meta name="description" content="See the web design and AI consultancy projects Pure Publishing has delivered for businesses across East Sussex and the UK.">
+  <meta name="description" content="Recent web design and AI consultancy projects from Pure Publishing — for real businesses across East Sussex and the UK.">
   <link rel="canonical" href="https://www.purepublishing.com/projects.html">
-  <meta property="og:title" content="Recent Projects | Pure Publishing">
-  <meta property="og:description" content="Web design and AI consultancy projects for East Sussex businesses.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.purepublishing.com/projects.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
-    /* Hero is soft/light — normal dark nav */
-    .hero-projects {
-      background: linear-gradient(135deg, var(--colour-bg-soft) 0%, #e8e4de 100%);
-      min-height: 55vh;
-    }
+    nav.site-nav:not(.scrolled) .nav-links a    { color:rgba(255,255,255,.85); }
+    nav.site-nav:not(.scrolled) .nav-wordmark   { color:white !important; }
+    nav.site-nav:not(.scrolled) .hamburger span { background:white; }
+    nav.site-nav:not(.scrolled) .logo-bg        { fill:rgba(255,255,255,.12); }
+    nav.site-nav:not(.scrolled) .logo-letter    { fill:white; }
 
-    /* Project card */
-    .project-card {
-      background: white;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--colour-card-shadow);
-      transition: transform var(--transition-base), box-shadow var(--transition-base), opacity 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: var(--colour-card-shadow-hover);
-    }
-    .project-thumb {
-      height: 200px;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .project-thumb-icon {
-      font-size: 3rem; opacity: .55;
-    }
-    .project-body { padding: var(--space-md); }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: var(--space-sm); }
-    .project-name {
-      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem;
-      margin-bottom: 0.4rem; color: var(--colour-text);
-    }
-    .project-desc { font-size: 0.9rem; color: var(--colour-text-muted); margin-bottom: var(--space-sm); line-height: 1.6; }
+    .hero-projects { background:#07071a; min-height:60vh; }
 
-    /* Testimonials */
-    .testimonial-card {
-      background: white;
-      border-radius: var(--radius-md);
-      padding: var(--space-lg);
-      box-shadow: var(--colour-card-shadow);
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-      position: relative;
-    }
-    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--colour-card-shadow-hover); }
-    .testimonial-card::before {
-      content: '\201C';
-      position: absolute; top: var(--space-md); left: var(--space-md);
-      font-family: 'Syne', sans-serif; font-size: 4rem; line-height: 1;
-      color: var(--colour-border); pointer-events: none;
-    }
-    .stars { color: #f5a623; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: var(--space-sm); }
-    .testimonial-quote {
-      font-family: var(--font-body); font-size: 1rem; line-height: 1.7;
-      color: var(--colour-text); margin-bottom: var(--space-md);
-      padding-top: var(--space-sm);
-    }
-    .testimonial-author { display: flex; align-items: center; gap: var(--space-sm); }
-    .author-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem;
-      color: white; flex-shrink: 0;
-    }
-    .author-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; }
-    .author-role { font-size: 0.8rem; color: var(--colour-text-muted); }
+    /* Project grid */
+    .projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-md); }
+    @media (max-width:900px) { .projects-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:600px) { .projects-grid { grid-template-columns:1fr; } }
 
-    /* CTA strip */
-    .cta-strip-projects {
-      background: linear-gradient(135deg, #2d2b8f 0%, #1a1a5e 100%);
-      padding: var(--space-xl) 0; text-align: center;
+    /* Testimonials bento */
+    .testi-bento { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-sm); }
+    @media (max-width:900px) { .testi-bento { grid-template-columns:1fr; } }
+
+    .testi-card {
+      background:white; border-radius:var(--radius-lg); padding:var(--space-xl) var(--space-lg);
+      box-shadow:var(--colour-card-shadow);
+      transition:transform var(--transition-base), box-shadow var(--transition-base);
     }
+    .testi-card:hover { transform:translateY(-5px); box-shadow:var(--colour-card-shadow-hover); }
+    .testi-card.featured {
+      background:var(--colour-primary); color:white;
+    }
+    .testi-card.featured .testi-body { color:rgba(255,255,255,.8); }
+    .testi-stars { font-size:.95rem; letter-spacing:3px; color:#f5a623; margin-bottom:var(--space-sm); }
+    .testi-body { font-size:1rem; line-height:1.75; font-style:italic; margin-bottom:var(--space-md); }
+    .testi-avatar {
+      width:42px; height:42px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Syne',sans-serif; font-weight:800; font-size:.85rem;
+      color:white; flex-shrink:0;
+    }
+    .testi-name { font-family:'Syne',sans-serif; font-weight:700; font-size:.9rem; }
+    .testi-role { font-size:.8rem; color:var(--colour-text-muted); }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════════ -->
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Pure Publishing — Home">
@@ -109,7 +65,7 @@
         <path class="logo-letter" d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
         <circle class="logo-accent" cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
       </svg>
-      <span class="nav-wordmark" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
+      <span class="nav-wordmark" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -119,12 +75,9 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Get in Touch</a>
-    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
   <a href="ai-consultancy.html">AI Consultancy</a>
@@ -135,113 +88,122 @@
 
 <main>
 
-  <!-- ════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════ -->
-  <section class="hero hero-projects">
+  <!-- HERO -->
+  <section class="hero hero-projects mesh-bg" style="min-height:60vh;">
     <div class="container hero-content">
-      <p class="label text-primary" style="margin-bottom:var(--space-sm);animation:fadeUp .7s ease .1s both;">Portfolio</p>
-      <h1 class="display-lg" style="margin-bottom:var(--space-md);animation:fadeUp .8s ease .3s both;">Our Recent Work</h1>
-      <p class="body-lg text-muted" style="max-width:540px;animation:fadeUp .8s ease .5s both;">A selection of AI consultancy and web design projects we're proud of — for real businesses, with real results.</p>
+      <div class="hero-eyebrow" style="animation:fadeUp .7s ease .1s both;">
+        <span class="hero-eyebrow-dot"></span>
+        Portfolio
+      </div>
+      <h1 style="animation:fadeUp .85s ease .3s both;">
+        <span class="display-lg text-light" style="display:block;">Our Recent Work</span>
+        <span class="display-md is-outline" style="display:block;-webkit-text-stroke:1.5px rgba(255,255,255,.4);margin-top:.2em;">Real results for real businesses.</span>
+      </h1>
+    </div>
+    <div class="caret-down" aria-hidden="true">
+      <span>scroll</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════
-       PROJECT GRID + FILTER
-  ════════════════════════════════════════ -->
+  <!-- PROJECT GRID -->
   <section class="section bg-white">
     <div class="container">
 
-      <!-- Filter controls -->
-      <div class="filter-controls reveal" role="group" aria-label="Filter projects by category">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="ai-consultancy">AI Consultancy</button>
-        <button class="filter-btn" data-filter="web-design">Web Design</button>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md);margin-bottom:var(--space-xl);">
+        <div>
+          <p class="oversize-label reveal" style="margin-bottom:var(--space-xs);">Selected Work</p>
+          <h2 class="display-md reveal">Projects we're proud of</h2>
+        </div>
+        <div class="filter-controls reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ai-consultancy">AI Consultancy</button>
+          <button class="filter-btn" data-filter="web-design">Web Design</button>
+        </div>
       </div>
 
-      <!-- Project grid -->
-      <div class="grid-3 stagger-children">
+      <div class="projects-grid stagger-children">
 
-        <div class="project-card reveal" data-category="ai-consultancy">
-          <div class="project-thumb grad-night">
-            <span class="project-thumb-icon">🔧</span>
+        <div class="proj-card reveal" data-category="ai-consultancy">
+          <div class="proj-card-thumb grad-night">
+            <span class="proj-card-thumb-emoji">🔧</span>
           </div>
-          <div class="project-body">
-            <div class="project-tags">
+          <div class="proj-card-body">
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p class="project-name">Coastal Plumbers</p>
-            <p class="project-desc">AI Workflow Audit — Identified 6 hours of weekly admin that could be fully automated, cutting response times by 40%.</p>
+            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Coastal Plumbers</p>
+            <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">AI Workflow Audit — 6 hours of weekly admin automated. Customer response times cut by 40%.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
         </div>
 
-        <div class="project-card reveal" data-category="web-design">
-          <div class="project-thumb grad-coral">
-            <span class="project-thumb-icon">🍞</span>
+        <div class="proj-card reveal" data-category="web-design">
+          <div class="proj-card-thumb grad-coral">
+            <span class="proj-card-thumb-emoji">🍞</span>
           </div>
-          <div class="project-body">
-            <div class="project-tags">
+          <div class="proj-card-body">
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-accent">Web Design</span>
             </div>
-            <p class="project-name">Rye Bakery</p>
-            <p class="project-desc">New Website — A warm, photo-rich site with online ordering integration. Increased online enquiries by 65% in three months.</p>
+            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Rye Bakery</p>
+            <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">New Website — Photo-rich site with online ordering. Online enquiries up 65% in three months.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
         </div>
 
-        <div class="project-card reveal" data-category="ai-consultancy">
-          <div class="project-thumb grad-sage">
-            <span class="project-thumb-icon">🧘</span>
+        <div class="proj-card reveal" data-category="ai-consultancy">
+          <div class="proj-card-thumb grad-sage">
+            <span class="proj-card-thumb-emoji">🧘</span>
           </div>
-          <div class="project-body">
-            <div class="project-tags">
+          <div class="proj-card-body">
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p class="project-name">Hastings Yoga Studio</p>
-            <p class="project-desc">AI Customer Service Setup — Implemented an AI assistant handling 80% of booking enquiries automatically, 24/7.</p>
+            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Hastings Yoga Studio</p>
+            <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">AI Customer Service Setup — 80% of booking enquiries handled automatically, 24 hours a day.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
         </div>
 
-        <div class="project-card reveal" data-category="web-design">
-          <div class="project-thumb grad-warm">
-            <span class="project-thumb-icon">📊</span>
+        <div class="proj-card reveal" data-category="web-design">
+          <div class="proj-card-thumb grad-warm">
+            <span class="proj-card-thumb-emoji">📊</span>
           </div>
-          <div class="project-body">
-            <div class="project-tags">
+          <div class="proj-card-body">
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-accent">Web Design</span>
             </div>
-            <p class="project-name">St Leonards Accountants</p>
-            <p class="project-desc">Website Redesign — A clean, trustworthy rebrand with integrated client portal and clear service pages that convert.</p>
+            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">St Leonards Accountants</p>
+            <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">Website Redesign — Clean, trustworthy rebrand with client portal. Enquiry rate doubled.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
         </div>
 
-        <div class="project-card reveal" data-category="ai-consultancy">
-          <div class="project-thumb grad-aurora">
-            <span class="project-thumb-icon">🎁</span>
+        <div class="proj-card reveal" data-category="ai-consultancy">
+          <div class="proj-card-thumb grad-aurora">
+            <span class="proj-card-thumb-emoji">🎁</span>
           </div>
-          <div class="project-body">
-            <div class="project-tags">
+          <div class="proj-card-body">
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p class="project-name">Bexhill Gift Shop</p>
-            <p class="project-desc">AI Marketing Assistant — Set up AI tools to generate product descriptions, social posts, and email campaigns in minutes.</p>
+            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Bexhill Gift Shop</p>
+            <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">AI Marketing Assistant — Product descriptions, social posts, and email campaigns in minutes.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
         </div>
 
-        <div class="project-card reveal" data-category="ai-consultancy">
-          <div class="project-thumb grad-indigo">
-            <span class="project-thumb-icon">⚖️</span>
+        <div class="proj-card reveal" data-category="ai-consultancy">
+          <div class="proj-card-thumb grad-indigo">
+            <span class="proj-card-thumb-emoji">⚖️</span>
           </div>
-          <div class="project-body">
-            <div class="project-tags">
+          <div class="proj-card-body">
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p class="project-name">Eastbourne Solicitors</p>
-            <p class="project-desc">Process Automation Review — Mapped and automated document drafting workflows, saving the practice 12+ hours per week.</p>
+            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Eastbourne Solicitors</p>
+            <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">Process Automation — Document drafting automated, saving the practice 12+ hours per week.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
         </div>
@@ -250,50 +212,48 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════
-       TESTIMONIALS
-  ════════════════════════════════════════ -->
-  <section class="section bg-soft">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:var(--space-xl);">
-        <p class="label text-primary reveal" style="margin-bottom:var(--space-xs);">What clients say</p>
-        <h2 class="display-md reveal">Don't just take our word for it</h2>
+  <!-- TESTIMONIALS -->
+  <section class="section dark-statement">
+    <div class="container" style="position:relative;z-index:2;">
+      <div style="margin-bottom:var(--space-xl);">
+        <p class="oversize-label light reveal" style="margin-bottom:var(--space-sm);">What clients say</p>
+        <h2 class="display-md text-light reveal">Don't just take our word for it.</h2>
       </div>
 
-      <div class="grid-3 stagger-children">
+      <div class="testi-bento stagger-children">
 
-        <div class="testimonial-card reveal">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-quote">"I was sceptical about AI — I thought it was just for big tech companies. Pure Publishing sat down with me, explained everything in plain English, and within a month I was saving hours every week. I can't recommend them highly enough."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:#2d2b8f;">SM</div>
+        <div class="testi-card featured reveal-scale">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-body" style="color:rgba(255,255,255,.85);">"I was sceptical about AI — I thought it was just for big companies. Pure Publishing sat down with me, explained everything in plain English, and within a month I was saving hours every week. Can't recommend them highly enough."</p>
+          <div style="display:flex;align-items:center;gap:var(--space-sm);">
+            <div class="testi-avatar" style="background:rgba(255,255,255,.15);">SM</div>
             <div>
-              <p class="author-name">Sarah M.</p>
-              <p class="author-role">Owner, Coastal Plumbers, Eastbourne</p>
+              <p class="testi-name" style="color:white;">Sarah M.</p>
+              <p class="testi-role" style="color:rgba(255,255,255,.5);">Owner, Coastal Plumbers, Eastbourne</p>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card reveal">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-quote">"Our new website looks incredible and actually brings in enquiries now — our old one didn't do anything. The whole process was smooth from start to finish. Pure Publishing really listened to what we wanted."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:#ff6b35;">JB</div>
+        <div class="testi-card reveal-scale">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-body">"Our new website looks incredible and actually brings in enquiries. The whole process was smooth from start to finish. Pure Publishing really listened to what we wanted and delivered something better than we imagined."</p>
+          <div style="display:flex;align-items:center;gap:var(--space-sm);">
+            <div class="testi-avatar" style="background:#ff6b35;">JB</div>
             <div>
-              <p class="author-name">James B.</p>
-              <p class="author-role">Director, Rye Bakery, Rye</p>
+              <p class="testi-name">James B.</p>
+              <p class="testi-role">Director, Rye Bakery, Rye</p>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card reveal">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-quote">"Setting up an AI customer service tool felt overwhelming until Pure Publishing made it simple. Our clients get instant answers at any hour, and my team spends their time on the work that really matters. Brilliant."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" style="background:#7fb5a0;">LP</div>
+        <div class="testi-card reveal-scale">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-body">"Setting up AI felt overwhelming until Pure Publishing made it simple. Our clients get instant answers any hour of the day, and my team spends their time on the work that really matters. Genuinely brilliant."</p>
+          <div style="display:flex;align-items:center;gap:var(--space-sm);">
+            <div class="testi-avatar" style="background:#7fb5a0;">LP</div>
             <div>
-              <p class="author-name">Liz P.</p>
-              <p class="author-role">Founder, Hastings Yoga Studio</p>
+              <p class="testi-name">Liz P.</p>
+              <p class="testi-role">Founder, Hastings Yoga Studio</p>
             </div>
           </div>
         </div>
@@ -302,23 +262,22 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════
-       CTA STRIP
-  ════════════════════════════════════════ -->
-  <section class="cta-strip-projects">
-    <div class="container">
-      <p class="label reveal" style="color:rgba(255,255,255,0.55);margin-bottom:var(--space-sm);">Your project next?</p>
-      <h2 class="display-md text-light reveal" style="margin-bottom:var(--space-md);">Ready to see results like these?</h2>
-      <p class="body-lg reveal" style="color:rgba(255,255,255,0.78);max-width:480px;margin:0 auto var(--space-lg);">Let's talk about your business and what we could achieve together.</p>
-      <a href="contact.html" class="btn btn-primary btn-lg reveal">Get in Touch &rarr;</a>
+  <!-- SPLIT CTA -->
+  <div class="split-cta reveal">
+    <div class="split-cta-left">
+      <p class="oversize-label light" style="margin-bottom:var(--space-md);">Your project next?</p>
+      <h2 class="display-md text-light" style="margin-bottom:var(--space-md);">Ready to see results like these?</h2>
+      <p style="color:rgba(255,255,255,.6);line-height:1.7;">Every project starts with a free conversation about what you're trying to achieve.</p>
     </div>
-  </section>
+    <div class="split-cta-right">
+      <h3 class="heading-lg text-light" style="margin-bottom:var(--space-sm);">Let's talk.</h3>
+      <p class="text-light" style="opacity:.85;line-height:1.7;margin-bottom:var(--space-lg);">Tell us about your business and we'll show you what's possible.</p>
+      <a href="contact.html" class="btn btn-ghost btn-lg" style="align-self:flex-start;">Get in Touch &rarr;</a>
+    </div>
+  </div>
 
 </main>
 
-<!-- ════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -336,18 +295,10 @@
         </a>
         <p class="footer-tagline">Helping East Sussex businesses work smarter with AI.</p>
         <div class="footer-social">
-          <a href="#" class="social-icon" aria-label="Facebook">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="Instagram">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="LinkedIn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="YouTube">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0f0f0f"/></svg>
-          </a>
+          <a href="#" class="social-icon" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0f0f0f"/></svg></a>
         </div>
       </div>
       <div class="footer-links">
