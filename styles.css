@@ -14,13 +14,13 @@
 :root {
   /* Colours */
   --colour-bg: #ffffff;
-  --colour-bg-soft: #D4F5E9;
+  --colour-bg-soft: #3EEDE7;
   --colour-bg-dark: #0f0f0f;
   --colour-primary: #1A1A5E;
   --colour-primary-dark: #0d0d3a;
-  --colour-accent: #D4F5E9;
-  --colour-accent-hover: #a8d4bc;
-  --colour-sage: #D4F5E9;
+  --colour-accent: #3EEDE7;
+  --colour-accent-hover: #20C5BE;
+  --colour-sage: #3EEDE7;
   --colour-text: #0F0F0F;
   --colour-text-muted: rgba(15, 15, 15, 0.6);
   --colour-text-light: #ffffff;
@@ -611,7 +611,7 @@ body.nav-open {
 
 .badge-sage {
   background: rgba(127, 181, 160, 0.18);
-  color: #a8d4bc;
+  color: #20C5BE;
 }
 
 /* ------------------------------------------------------------
@@ -627,7 +627,7 @@ body.nav-open {
 }
 
 .grad-coral {
-  background: linear-gradient(135deg, #D4F5E9 0%, #a8d4bc 100%);
+  background: linear-gradient(135deg, #3EEDE7 0%, #20C5BE 100%);
 }
 
 .grad-night {
@@ -635,15 +635,15 @@ body.nav-open {
 }
 
 .grad-sage {
-  background: linear-gradient(135deg, #D4F5E9 0%, #a8d4bc 100%);
+  background: linear-gradient(135deg, #3EEDE7 0%, #20C5BE 100%);
 }
 
 .grad-warm {
-  background: linear-gradient(135deg, #D4F5E9 0%, #b8ead6 100%);
+  background: linear-gradient(135deg, #3EEDE7 0%, #20C5BE 100%);
 }
 
 .grad-aurora {
-  background: linear-gradient(135deg, #1A1A5E 0%, #D4F5E9 50%, #D4F5E9 100%);
+  background: linear-gradient(135deg, #1A1A5E 0%, #3EEDE7 50%, #3EEDE7 100%);
 }
 
 /* ------------------------------------------------------------
@@ -923,7 +923,7 @@ footer.site-footer {
 
 .form-success {
   background: rgba(127, 181, 160, 0.15);
-  color: #a8d4bc;
+  color: #20C5BE;
   border: 1px solid rgba(127, 181, 160, 0.4);
 }
 
@@ -1176,7 +1176,7 @@ footer.site-footer {
 }
 
 .text-gradient-warm {
-  background: linear-gradient(135deg, var(--colour-accent) 0%, #D4F5E9 100%);
+  background: linear-gradient(135deg, var(--colour-accent) 0%, #3EEDE7 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
