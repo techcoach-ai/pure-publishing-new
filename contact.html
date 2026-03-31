@@ -8,18 +8,12 @@
   <link rel="canonical" href="https://www.purepublishing.com/contact.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
-    nav.site-nav:not(.scrolled) .nav-links a    { color:rgba(255,255,255,.85); }
-    nav.site-nav:not(.scrolled) .nav-wordmark   { color:white !important; }
-    nav.site-nav:not(.scrolled) .hamburger span { background:white; }
-    nav.site-nav:not(.scrolled) .logo-bg        { fill:rgba(255,255,255,.12); }
-    nav.site-nav:not(.scrolled) .logo-letter    { fill:white; }
-
-    .hero-contact { background:linear-gradient(135deg,#2d2b8f 0%,#0c0c28 100%); min-height:55vh; }
+    .hero-contact { background: #ffffff; min-height:55vh; }
 
     /* Contact layout */
     .contact-layout {
@@ -39,7 +33,7 @@
       display:flex; align-items:center; justify-content:center;
       font-size:1.2rem; flex-shrink:0;
     }
-    .info-lbl { font-family:'Syne',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:.2rem; }
+    .info-lbl { font-family:'Bricolage Grotesque',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:.2rem; }
     .info-val { font-size:.95rem; color:rgba(255,255,255,.85); line-height:1.6; }
     .info-val a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
     .info-divider { height:1px; background:rgba(255,255,255,.1); margin:var(--space-md) 0; }
@@ -77,7 +71,7 @@
         <path class="logo-letter" d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
         <circle class="logo-accent" cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
       </svg>
-      <span class="nav-wordmark" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
+      <span class="nav-wordmark" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -103,19 +97,18 @@
   <!-- HERO -->
   <section class="hero hero-contact mesh-bg">
     <div class="container hero-content">
-      <div class="hero-eyebrow" style="animation:fadeUp .7s ease .1s both;">
-        <span class="hero-eyebrow-dot"></span>
+      <div class="hero-eyebrow" style="animation:fadeUp .7s ease .1s both;background:rgba(45,43,143,.08);border:1px solid rgba(45,43,143,.15);color:var(--colour-primary);">
         Free Consultation Available
       </div>
       <h1 style="margin-bottom:var(--space-lg);animation:fadeUp .85s ease .3s both;">
-        <span class="display-lg text-light" style="display:block;">Let's Have a Chat.</span>
-        <span class="display-md" style="display:block;color:rgba(255,255,255,.5);margin-top:.2em;">No hard sell. Just an honest conversation.</span>
+        <span class="display-lg" style="display:block;">Let's Have a Chat.</span>
+        <span class="display-md" style="display:block;color:var(--colour-text-muted);margin-top:.2em;">No hard sell. Just an honest conversation.</span>
       </h1>
-      <p class="body-lg" style="color:rgba(255,255,255,.65);max-width:520px;line-height:1.8;animation:fadeUp .85s ease .5s both;">
+      <p class="body-lg" style="color:var(--colour-text-muted);max-width:520px;line-height:1.8;animation:fadeUp .85s ease .5s both;">
         Tell us about your business. We'll tell you honestly what AI — or a new website — could do for it. First call is always free.
       </p>
     </div>
-    <div class="caret-down" aria-hidden="true">
+    <div class="caret-down" style="color:rgba(15,15,15,.35);" aria-hidden="true">
       <span>scroll</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
     </div>
@@ -244,7 +237,7 @@
             <path d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
             <circle cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
           </svg>
-          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.01em;">Pure Publishing</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.01em;">Pure Publishing</span>
         </a>
         <p class="footer-tagline">Helping East Sussex businesses work smarter with AI.</p>
         <div class="footer-social">

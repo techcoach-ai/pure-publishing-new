@@ -6,7 +6,7 @@
 /* ------------------------------------------------------------
    Google Fonts Import
    ------------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Nunito:wght@400;600;700;800&display=swap');
 
 /* ------------------------------------------------------------
    CSS Custom Properties
@@ -29,7 +29,7 @@
   --colour-card-shadow-hover: 0 12px 40px rgba(45, 43, 143, 0.18);
 
   /* Typography */
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Nunito', sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 600;

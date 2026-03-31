@@ -8,18 +8,12 @@
   <link rel="canonical" href="https://www.purepublishing.com/projects.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
-    nav.site-nav:not(.scrolled) .nav-links a    { color:rgba(255,255,255,.85); }
-    nav.site-nav:not(.scrolled) .nav-wordmark   { color:white !important; }
-    nav.site-nav:not(.scrolled) .hamburger span { background:white; }
-    nav.site-nav:not(.scrolled) .logo-bg        { fill:rgba(255,255,255,.12); }
-    nav.site-nav:not(.scrolled) .logo-letter    { fill:white; }
-
-    .hero-projects { background:#07071a; min-height:60vh; }
+    .hero-projects { background: #f7f5f2; min-height:60vh; }
 
     /* Project grid */
     .projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-md); }
@@ -45,10 +39,10 @@
     .testi-avatar {
       width:42px; height:42px; border-radius:50%;
       display:flex; align-items:center; justify-content:center;
-      font-family:'Syne',sans-serif; font-weight:800; font-size:.85rem;
+      font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.85rem;
       color:white; flex-shrink:0;
     }
-    .testi-name { font-family:'Syne',sans-serif; font-weight:700; font-size:.9rem; }
+    .testi-name { font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.9rem; }
     .testi-role { font-size:.8rem; color:var(--colour-text-muted); }
   </style>
 </head>
@@ -65,7 +59,7 @@
         <path class="logo-letter" d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
         <circle class="logo-accent" cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
       </svg>
-      <span class="nav-wordmark" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
+      <span class="nav-wordmark" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="index.html">Home</a></li>
@@ -91,16 +85,15 @@
   <!-- HERO -->
   <section class="hero hero-projects mesh-bg" style="min-height:60vh;">
     <div class="container hero-content">
-      <div class="hero-eyebrow" style="animation:fadeUp .7s ease .1s both;">
-        <span class="hero-eyebrow-dot"></span>
+      <div class="hero-eyebrow" style="animation:fadeUp .7s ease .1s both;background:rgba(45,43,143,.08);border:1px solid rgba(45,43,143,.15);color:var(--colour-primary);">
         Portfolio
       </div>
       <h1 style="animation:fadeUp .85s ease .3s both;">
-        <span class="display-lg text-light" style="display:block;">Our Recent Work</span>
-        <span class="display-md is-outline" style="display:block;-webkit-text-stroke:1.5px rgba(255,255,255,.4);margin-top:.2em;">Real results for real businesses.</span>
+        <span class="display-lg" style="display:block;">Our Recent Work</span>
+        <span class="display-md is-outline" style="display:block;-webkit-text-stroke:1.5px rgba(45,43,143,.35);color:var(--colour-text-muted);margin-top:.2em;">Real results for real businesses.</span>
       </h1>
     </div>
-    <div class="caret-down" aria-hidden="true">
+    <div class="caret-down" style="color:rgba(15,15,15,.35);" aria-hidden="true">
       <span>scroll</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
     </div>
@@ -132,7 +125,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Coastal Plumbers</p>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Coastal Plumbers</p>
             <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">AI Workflow Audit — 6 hours of weekly admin automated. Customer response times cut by 40%.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
@@ -146,7 +139,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-accent">Web Design</span>
             </div>
-            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Rye Bakery</p>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Rye Bakery</p>
             <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">New Website — Photo-rich site with online ordering. Online enquiries up 65% in three months.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
@@ -160,7 +153,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Hastings Yoga Studio</p>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Hastings Yoga Studio</p>
             <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">AI Customer Service Setup — 80% of booking enquiries handled automatically, 24 hours a day.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
@@ -174,7 +167,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-accent">Web Design</span>
             </div>
-            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">St Leonards Accountants</p>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">St Leonards Accountants</p>
             <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">Website Redesign — Clean, trustworthy rebrand with client portal. Enquiry rate doubled.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
@@ -188,7 +181,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Bexhill Gift Shop</p>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Bexhill Gift Shop</p>
             <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">AI Marketing Assistant — Product descriptions, social posts, and email campaigns in minutes.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
@@ -202,7 +195,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;">
               <span class="badge badge-primary">AI Consultancy</span>
             </div>
-            <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Eastbourne Solicitors</p>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.3rem;">Eastbourne Solicitors</p>
             <p style="font-size:.875rem;color:var(--colour-text-muted);margin-bottom:var(--space-sm);line-height:1.6;">Process Automation — Document drafting automated, saving the practice 12+ hours per week.</p>
             <a href="#" class="btn btn-outline btn-sm">View Details</a>
           </div>
@@ -291,7 +284,7 @@
             <path d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
             <circle cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
           </svg>
-          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.01em;">Pure Publishing</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.01em;">Pure Publishing</span>
         </a>
         <p class="footer-tagline">Helping East Sussex businesses work smarter with AI.</p>
         <div class="footer-social">

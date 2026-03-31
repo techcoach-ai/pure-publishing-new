@@ -7,7 +7,7 @@
   <meta name="description" content="Pure Publishing helps East Sussex businesses use AI to save time, cut costs, and grow — in plain English. AI consultancy and web design, based in St Leonards-on-Sea.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     @keyframes fadeUp {
@@ -18,16 +18,9 @@
       from { opacity: 0; } to { opacity: 1; }
     }
 
-    /* ── Nav inversion on dark hero ── */
-    nav.site-nav:not(.scrolled) .nav-links a    { color: rgba(255,255,255,.85); }
-    nav.site-nav:not(.scrolled) .nav-wordmark   { color: white !important; }
-    nav.site-nav:not(.scrolled) .hamburger span { background: white; }
-    nav.site-nav:not(.scrolled) .logo-bg        { fill: rgba(255,255,255,.12); }
-    nav.site-nav:not(.scrolled) .logo-letter    { fill: white; }
-
     /* ── Hero ── */
     .hero-home {
-      background: #07071a;
+      background: #ffffff;
       min-height: 100vh;
     }
 
@@ -51,7 +44,7 @@
     }
     .stats-bar-num {
       display: block;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 800;
       color: white;
@@ -60,7 +53,7 @@
     }
     .stats-bar-label {
       display: block;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -102,14 +95,14 @@
       margin-bottom: var(--space-sm);
     }
     .bento-cell-num {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: clamp(3rem, 6vw, 5rem);
       font-weight: 800;
       line-height: 1;
       letter-spacing: -0.04em;
     }
     .bento-cell-label {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -149,7 +142,7 @@
         <path class="logo-letter" d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
         <circle class="logo-accent" cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
       </svg>
-      <span class="nav-wordmark" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
+      <span class="nav-wordmark" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;color:#2d2b8f;letter-spacing:-0.01em;">Pure Publishing</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="index.html" class="active">Home</a></li>
@@ -181,28 +174,27 @@
   <section class="hero hero-home mesh-bg">
     <div class="container hero-content" style="padding-bottom:var(--space-xl);">
 
-      <div class="hero-eyebrow" style="animation:fadeIn .8s ease .2s both;">
-        <span class="hero-eyebrow-dot"></span>
+      <div class="hero-eyebrow" style="animation:fadeIn .8s ease .2s both;background:rgba(45,43,143,.08);border:1px solid rgba(45,43,143,.15);color:var(--colour-primary);">
         AI Consultancy &amp; Web Design &nbsp;·&nbsp; St Leonards-on-Sea
       </div>
 
       <h1 style="margin-bottom:var(--space-lg);animation:fadeUp .9s ease .4s both;">
-        <span class="hero-line display-xl text-light" style="display:block;">Your Business.</span>
-        <span class="hero-line display-xl is-outline" style="display:block;">Smarter.</span>
+        <span class="hero-line display-xl" style="display:block;color:var(--colour-text);">Your Business.</span>
+        <span class="hero-line display-xl is-outline" style="display:block;-webkit-text-stroke:2px var(--colour-primary);">Smarter.</span>
         <span class="hero-line display-xl" style="display:block;color:var(--colour-accent);">Powered by AI.</span>
       </h1>
 
-      <p class="body-lg" style="color:rgba(255,255,255,.65);max-width:520px;margin-bottom:var(--space-xl);animation:fadeUp .9s ease .6s both;line-height:1.8;">
+      <p class="body-lg" style="color:var(--colour-text-muted);max-width:520px;margin-bottom:var(--space-xl);animation:fadeUp .9s ease .6s both;line-height:1.8;">
         We help small and medium businesses across East Sussex get the most from AI — in plain English, no jargon, no nonsense.
       </p>
 
       <div class="flex-gap" style="flex-wrap:wrap;animation:fadeUp .9s ease .8s both;">
         <a href="ai-consultancy.html" class="btn btn-primary btn-lg">Explore AI Consultancy</a>
-        <a href="projects.html" class="btn btn-ghost btn-lg">See Our Work</a>
+        <a href="projects.html" class="btn btn-outline btn-lg">See Our Work</a>
       </div>
 
     </div>
-    <div class="caret-down" aria-hidden="true">
+    <div class="caret-down" style="color:rgba(15,15,15,.35);" aria-hidden="true">
       <span>scroll</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
         <path d="M6 9l6 6 6-6"/>
@@ -287,9 +279,9 @@
 
         <!-- Step 1 -->
         <div class="card reveal-left" style="display:flex;flex-direction:column;justify-content:space-between;min-height:320px;position:relative;overflow:hidden;">
-          <div style="position:absolute;right:1.5rem;top:1.5rem;font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;opacity:.06;line-height:1;color:#2d2b8f;pointer-events:none;">01</div>
+          <div style="position:absolute;right:1.5rem;top:1.5rem;font-family:'Bricolage Grotesque',sans-serif;font-size:5rem;font-weight:800;opacity:.06;line-height:1;color:#2d2b8f;pointer-events:none;">01</div>
           <div>
-            <div style="width:42px;height:42px;border-radius:50%;background:var(--colour-primary);color:white;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;margin-bottom:var(--space-md);">1</div>
+            <div style="width:42px;height:42px;border-radius:50%;background:var(--colour-primary);color:white;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;margin-bottom:var(--space-md);">1</div>
             <p class="oversize-label" style="margin-bottom:var(--space-xs);">Discovery</p>
             <h3 class="heading-lg" style="margin-bottom:var(--space-sm);">We listen first.</h3>
             <p class="body-md text-muted">We sit down and learn about your business, your challenges, and your goals. No assumptions. No pre-packaged solutions. Just an honest conversation.</p>
@@ -298,10 +290,10 @@
 
         <!-- Step 2 -->
         <div class="card reveal-right" style="display:flex;flex-direction:column;justify-content:space-between;min-height:320px;position:relative;overflow:hidden;background:var(--colour-primary);color:white;">
-          <div style="position:absolute;right:1.5rem;top:1.5rem;font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;opacity:.12;line-height:1;color:white;pointer-events:none;">02</div>
+          <div style="position:absolute;right:1.5rem;top:1.5rem;font-family:'Bricolage Grotesque',sans-serif;font-size:5rem;font-weight:800;opacity:.12;line-height:1;color:white;pointer-events:none;">02</div>
           <div>
-            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);color:white;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;margin-bottom:var(--space-md);">2</div>
-            <p style="font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--space-xs);">Strategy</p>
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);color:white;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;margin-bottom:var(--space-md);">2</div>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--space-xs);">Strategy</p>
             <h3 class="heading-lg text-light" style="margin-bottom:var(--space-sm);">We find the right tools.</h3>
             <p class="body-md" style="color:rgba(255,255,255,.75);">No one-size-fits-all packages. We identify the AI tools that suit your business, your budget, and your way of working — and explain exactly why.</p>
           </div>
@@ -309,10 +301,10 @@
 
         <!-- Step 3 — full width -->
         <div class="card reveal" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:center;min-height:240px;position:relative;overflow:hidden;background:#07071a;color:white;">
-          <div style="position:absolute;right:2rem;bottom:-1rem;font-family:'Syne',sans-serif;font-size:9rem;font-weight:800;opacity:.06;line-height:1;color:white;pointer-events:none;">03</div>
+          <div style="position:absolute;right:2rem;bottom:-1rem;font-family:'Bricolage Grotesque',sans-serif;font-size:9rem;font-weight:800;opacity:.06;line-height:1;color:white;pointer-events:none;">03</div>
           <div>
-            <div style="width:42px;height:42px;border-radius:50%;background:var(--colour-accent);color:white;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;margin-bottom:var(--space-md);">3</div>
-            <p style="font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--space-xs);">Implementation</p>
+            <div style="width:42px;height:42px;border-radius:50%;background:var(--colour-accent);color:white;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;margin-bottom:var(--space-md);">3</div>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--space-xs);">Implementation</p>
             <h3 class="heading-lg text-light" style="margin-bottom:var(--space-sm);">We show you how.</h3>
           </div>
           <div>
@@ -448,7 +440,7 @@
             <path d="M24 9h5a5 5 0 0 1 0 10H24z" fill="white"/>
             <circle cx="18.5" cy="27" r="2.5" fill="#ff6b35"/>
           </svg>
-          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.01em;">Pure Publishing</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.01em;">Pure Publishing</span>
         </a>
         <p class="footer-tagline">Helping East Sussex businesses work smarter with AI.</p>
         <div class="footer-social">
