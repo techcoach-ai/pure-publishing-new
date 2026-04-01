@@ -1178,7 +1178,7 @@ footer.site-footer {
    Gradient text
    ------------------------------------------------------------ */
 .text-gradient {
-  background: linear-gradient(135deg, #2E5BFF 0%, #7B8FFF 100%);
+  background: linear-gradient(90deg, #5B7BFF 0%, #A5B4FC 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
