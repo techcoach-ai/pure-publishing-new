@@ -1395,7 +1395,7 @@ footer.site-footer {
   content: '';
   position: absolute;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(46, 91, 255,.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(46, 91, 255,.12) 0%, transparent 70%);
   top: -200px; right: -100px;
   pointer-events: none;
 }
@@ -1403,7 +1403,7 @@ footer.site-footer {
   content: '';
   position: absolute;
   width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(123,143,255,.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(123,143,255,.08) 0%, transparent 70%);
   bottom: -100px; left: 5%;
   pointer-events: none;
 }
@@ -1438,20 +1438,20 @@ footer.site-footer {
   content: '';
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(130px);
   pointer-events: none;
   animation: floatOrb 12s ease-in-out infinite alternate;
 }
 .mesh-bg::before {
-  width: 700px; height: 700px;
-  background: rgba(46, 91, 255, .5);
-  top: -200px; right: -100px;
+  width: 600px; height: 600px;
+  background: rgba(46, 91, 255, .10);
+  top: -150px; right: -80px;
   animation-duration: 14s;
 }
 .mesh-bg::after {
-  width: 500px; height: 500px;
-  background: rgba(123, 143, 255, .25);
-  bottom: -100px; left: 10%;
+  width: 450px; height: 450px;
+  background: rgba(123, 143, 255, .07);
+  bottom: -80px; left: 10%;
   animation-duration: 10s;
   animation-direction: alternate-reverse;
 }
