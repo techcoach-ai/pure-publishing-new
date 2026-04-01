@@ -12,29 +12,30 @@
    CSS Custom Properties
    ------------------------------------------------------------ */
 :root {
-  /* ── Dark-mode palette ── */
-  --bg-primary:     #0D0D0D;
-  --bg-secondary:   #1A1A1B;
-  --accent-primary: #2E5BFF;
-  --accent-success: #2E5BFF;
-  --text-primary:   #F2F2F2;
-  --text-secondary: #8E8E93;
+  /* ── Brand palette ── */
+  --bg-primary:       #08081A;
+  --bg-secondary:     #0F0F1E;
+  --accent-primary:   #2E5BFF;
+  --accent-secondary: #7B8FFF;
+  --text-primary:     #FFFFFF;
+  --text-secondary:   #C0C0CC;
+  --text-muted-color: #6E6E80;
 
-  /* Colour tokens mapped to new palette */
-  --colour-bg: #0D0D0D;
-  --colour-bg-soft: #1A1A1B;
-  --colour-bg-dark: #1A1A1B;
+  /* Colour tokens */
+  --colour-bg: #08081A;
+  --colour-bg-soft: #0F0F1E;
+  --colour-bg-dark: #0F0F1E;
   --colour-primary: #2E5BFF;
   --colour-primary-dark: #1a3acc;
-  --colour-accent: #2E5BFF;
-  --colour-accent-hover: #1a3acc;
-  --colour-sage: #2E5BFF;
-  --colour-text: #F2F2F2;
-  --colour-text-muted: #8E8E93;
-  --colour-text-light: #F2F2F2;
-  --colour-border: rgba(255, 255, 255, 0.1);
-  --colour-card-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-  --colour-card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.7);
+  --colour-accent: #7B8FFF;
+  --colour-accent-hover: #2E5BFF;
+  --colour-sage: #7B8FFF;
+  --colour-text: #FFFFFF;
+  --colour-text-muted: #C0C0CC;
+  --colour-text-light: #FFFFFF;
+  --colour-border: rgba(255, 255, 255, 0.08);
+  --colour-card-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  --colour-card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.8);
 
   /* Typography */
   --font-display: 'Poppins', sans-serif;
@@ -1177,14 +1178,14 @@ footer.site-footer {
    Gradient text
    ------------------------------------------------------------ */
 .text-gradient {
-  background: linear-gradient(135deg, var(--colour-primary) 0%, #7b5fc4 100%);
+  background: linear-gradient(135deg, #2E5BFF 0%, #7B8FFF 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-warm {
-  background: linear-gradient(135deg, var(--colour-accent) 0%, #2E5BFF 100%);
+  background: linear-gradient(135deg, #2E5BFF 0%, #7B8FFF 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1402,7 +1403,7 @@ footer.site-footer {
   content: '';
   position: absolute;
   width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(255,107,53,.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(123,143,255,.2) 0%, transparent 70%);
   bottom: -100px; left: 5%;
   pointer-events: none;
 }
@@ -1443,13 +1444,13 @@ footer.site-footer {
 }
 .mesh-bg::before {
   width: 700px; height: 700px;
-  background: rgba(46, 91, 255,.4);
+  background: rgba(46, 91, 255, .5);
   top: -200px; right: -100px;
   animation-duration: 14s;
 }
 .mesh-bg::after {
   width: 500px; height: 500px;
-  background: rgba(255,107,53,.15);
+  background: rgba(123, 143, 255, .25);
   bottom: -100px; left: 10%;
   animation-duration: 10s;
   animation-direction: alternate-reverse;
