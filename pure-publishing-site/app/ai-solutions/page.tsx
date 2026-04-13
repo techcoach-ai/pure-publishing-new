@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SolutionsGrid from "@/components/ai-solutions/SolutionsGrid";
+import FaqAccordion from "@/components/ai-solutions/FaqAccordion";
+import AiDemo from "@/components/AiDemo";
 
 /* ─────────────────────────────────────────────────────────────
    Page metadata — exported from this server component so that
@@ -24,10 +26,11 @@ export const metadata: Metadata = {
    AI Solutions page
 
    Architecture:
-   • This file is a Server Component — it keeps the metadata
-     export and renders the pure-CSS hero section.
-   • <SolutionsGrid /> is a Client Component ("use client")
-     that handles the onMouseMove cursor-glow on the cards.
+   • This file is a Server Component — keeps the metadata export
+     and all static sections (hero, demo header, FAQ header, CTA).
+   • <SolutionsGrid /> — Client Component (cursor glow)
+   • <AiDemo />       — Client Component (multi-step demo widget)
+   • <FaqAccordion /> — Client Component (accordion toggle)
 ───────────────────────────────────────────────────────────── */
 export default function AISolutionsPage() {
   return (
@@ -150,6 +153,188 @@ export default function AISolutionsPage() {
           SOLUTIONS GRID — client component (cursor glow)
       ═══════════════════════════════════════════════════════ */}
       <SolutionsGrid />
+
+      {/* ═══════════════════════════════════════════════════════
+          INTERACTIVE DEMO
+      ═══════════════════════════════════════════════════════ */}
+      <section
+        id="demo"
+        className="py-24 md:py-32"
+        style={{ background: "var(--white)" }}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+          {/* Section header */}
+          <div className="text-center mb-12" data-animate>
+            <p
+              className="font-syne font-semibold text-sm uppercase tracking-widest mb-4"
+              style={{ color: "var(--coral)" }}
+            >
+              Try It Yourself
+            </p>
+            <h2
+              className="font-syne font-bold text-4xl md:text-5xl leading-tight mb-5"
+              style={{ color: "var(--deep-indigo)" }}
+            >
+              See how AI could help your business.
+            </h2>
+            <p
+              className="font-nunito text-lg leading-relaxed max-w-2xl mx-auto"
+              style={{ color: "var(--text-soft)" }}
+            >
+              Pick your business type, answer one question, and our AI will
+              show you exactly what&apos;s possible.
+            </p>
+          </div>
+
+          {/* Demo widget — max 700px, centred */}
+          <div
+            className="max-w-[700px] mx-auto"
+            data-animate
+            data-delay="200"
+          >
+            <AiDemo />
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          FAQ
+      ═══════════════════════════════════════════════════════ */}
+      <section
+        id="faq"
+        className="py-24 md:py-32"
+        style={{ background: "var(--bg-alt)" }}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+          {/* Section header */}
+          <div className="text-center mb-14" data-animate>
+            <p
+              className="font-syne font-semibold text-sm uppercase tracking-widest mb-4"
+              style={{ color: "var(--coral)" }}
+            >
+              Common Questions
+            </p>
+            <h2
+              className="font-syne font-bold text-4xl md:text-5xl leading-tight mb-5"
+              style={{ color: "var(--deep-indigo)" }}
+            >
+              AI questions, answered in plain English.
+            </h2>
+          </div>
+
+          {/* Accordion — client component */}
+          <div data-animate data-delay="200">
+            <FaqAccordion />
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          CTA
+      ═══════════════════════════════════════════════════════ */}
+      <section
+        id="ai-cta"
+        className="relative overflow-hidden"
+        style={{
+          background: "linear-gradient(160deg, #f0f0ff 0%, #f0fafa 100%)",
+          paddingTop: "10rem",
+          paddingBottom: "10rem",
+        }}
+      >
+        {/* Large blurred glow orb — static, centred */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden="true"
+        >
+          <div
+            style={{
+              width: 720,
+              height: 720,
+              borderRadius: "50%",
+              background:
+                "radial-gradient(circle, rgba(255,107,107,0.13) 0%, rgba(14,165,160,0.07) 45%, transparent 70%)",
+              filter: "blur(80px)",
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+
+          {/* Eyebrow */}
+          <p
+            className="font-syne font-semibold text-sm uppercase tracking-widest mb-5"
+            style={{ color: "var(--coral)" }}
+            data-animate
+          >
+            Let&apos;s Talk
+          </p>
+
+          {/* Title */}
+          <h2
+            className="font-syne font-bold leading-tight mb-7"
+            style={{
+              fontSize: "clamp(2.2rem, 5vw, 4.2rem)",
+              letterSpacing: "-0.035em",
+              color: "var(--deep-indigo)",
+            }}
+            data-animate
+            data-delay="100"
+          >
+            Ready to see what AI can do for your business?
+          </h2>
+
+          {/* Subtitle */}
+          <p
+            className="font-nunito text-lg leading-relaxed mb-10"
+            style={{ color: "var(--text-soft)", maxWidth: 560, margin: "0 auto 2.5rem" }}
+            data-animate
+            data-delay="200"
+          >
+            Book a free chat. We&apos;ll listen, give you honest advice, and
+            put a plan together — no obligation.
+          </p>
+
+          {/* Contact chips + primary CTA */}
+          <div
+            className="flex flex-wrap items-center justify-center gap-3 mb-8"
+            data-animate
+            data-delay="300"
+          >
+            <a href="mailto:hello@purepublishing.co.uk" className="contact-chip">
+              📧 hello@purepublishing.co.uk
+            </a>
+            <a href="tel:01234567890" className="contact-chip">
+              📞 01234 567 890
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-nunito font-bold text-white transition-all duration-300 hover:scale-105 hover:brightness-110"
+              style={{
+                background: "var(--coral)",
+                boxShadow: "0 6px 32px var(--coral-glow)",
+              }}
+            >
+              Book Your Free Chat →
+            </Link>
+          </div>
+
+          {/* Trust line */}
+          <p
+            className="font-nunito text-sm"
+            style={{ color: "var(--text-muted)" }}
+            data-animate
+            data-delay="400"
+          >
+            Based in St Leonards-on-Sea, Hastings &middot; No jargon, ever
+          </p>
+
+        </div>
+      </section>
     </>
   );
 }
