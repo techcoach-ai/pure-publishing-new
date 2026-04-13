@@ -106,6 +106,49 @@ html.hero-ready .hero-animate.in{opacity:1;transform:none}
 .answer-btn{background:#f8f9fc;border:1.5px solid var(--card-border);border-radius:10px;padding:.65rem 1rem;font-size:.84rem;color:var(--text-soft);cursor:pointer;text-align:left;transition:all .2s;font-family:inherit;width:100%;font-weight:400}
 .answer-btn:hover{border-color:var(--accent);background:rgba(91,92,246,.05);color:var(--accent)}
 @keyframes typingDot{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-5px);opacity:1}}
+
+/* ── PRICING ── */
+.pricing-section{background:var(--bg-alt);padding:8rem 5%}
+.pricing-toggle{display:flex;align-items:center;gap:.75rem;justify-content:center;margin:2.5rem 0 3.5rem;font-size:.88rem;color:var(--mid)}
+.toggle-track{width:48px;height:26px;background:#dde1ea;border:1px solid #c9cdd8;border-radius:13px;position:relative;cursor:pointer;transition:background .3s}
+.toggle-track.on{background:var(--accent)}
+.toggle-thumb{width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;left:3px;transition:left .3s;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.toggle-track.on .toggle-thumb{left:25px}
+.toggle-label{font-size:.82rem;color:var(--mid)}
+.toggle-label.active{color:var(--text);font-weight:500}
+.toggle-save{background:rgba(14,165,160,.08);border:1px solid rgba(14,165,160,.2);color:var(--teal);font-size:.7rem;font-weight:600;padding:.2rem .6rem;border-radius:20px;letter-spacing:.04em}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.plan-card{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:22px;padding:2.25rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.plan-card:hover{transform:translateY(-5px);border-color:rgba(91,92,246,.25);box-shadow:0 16px 48px rgba(91,92,246,.1)}
+.plan-card.plan-featured{border-color:rgba(91,92,246,.3);background:linear-gradient(160deg,rgba(91,92,246,.04),rgba(14,165,160,.02))}
+.plan-card.plan-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal))}
+.plan-badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.28rem .75rem;border-radius:20px;margin-bottom:1.25rem}
+.badge-purple{background:rgba(91,92,246,.08);color:var(--accent);border:1px solid rgba(91,92,246,.2)}
+.badge-gradient{background:linear-gradient(90deg,var(--accent),var(--teal));color:#fff}
+.badge-teal{background:rgba(14,165,160,.08);color:var(--teal);border:1px solid rgba(14,165,160,.2)}
+.plan-name{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem;color:var(--text)}
+.plan-tagline{font-size:.87rem;color:var(--mid);margin-bottom:2rem;line-height:1.5}
+.plan-build{background:var(--bg-alt2);border:1.5px solid var(--card-border);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+.plan-build-label{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:.3rem}
+.plan-build-price{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;color:var(--text)}
+.plan-build-price span{font-size:.82rem;font-weight:400;color:var(--mid)}
+.plan-monthly{background:rgba(91,92,246,.05);border:1.5px solid rgba(91,92,246,.15);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.75rem}
+.plan-monthly-label{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+.plan-monthly-price{font-size:2rem;font-weight:700;letter-spacing:-.04em;color:var(--text)}
+.plan-monthly-price span{font-size:.82rem;font-weight:400;color:var(--mid)}
+.plan-monthly-breakdown{font-size:.75rem;color:var(--mid);margin-top:.3rem}
+.plan-includes{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
+.plan-includes li{font-size:.85rem;color:var(--mid);display:flex;align-items:flex-start;gap:.6rem}
+.plan-includes li::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0;font-size:.9rem}
+.plan-includes li.inc-bold{color:var(--text-soft);font-weight:500}
+.plan-cta{display:block;text-align:center;padding:.78rem;border-radius:50px;font-size:.9rem;font-weight:500;text-decoration:none;transition:all .25s}
+.cta-accent{background:var(--accent);color:#fff;box-shadow:0 4px 16px var(--accent-glow)}
+.cta-accent:hover{transform:scale(1.03);box-shadow:0 8px 28px var(--accent-glow)}
+.cta-outline{border:1.5px solid var(--card-border);color:var(--text)}
+.cta-outline:hover{background:var(--bg-alt);border-color:#b8bccb}
+.pricing-explainer{margin-top:3rem;background:var(--bg);border:1.5px solid var(--card-border);border-radius:18px;padding:2rem 2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.pe-title{font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
+.pe-desc{font-size:.8rem;color:var(--mid);line-height:1.65}
 </style>
 </head>
 <body id="top">
@@ -241,6 +284,55 @@ html.hero-ready .hero-animate.in{opacity:1;transform:none}
         <div class="agent-desc">A beautifully built website that works perfectly alongside your AI agents — connected, fast, and designed to convert visitors into customers.</div>
         <div class="agent-tag">✦ Optional add-on to any plan</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="inner" style="text-align:center">
+    <span class="eyebrow fade-up">Pricing</span>
+    <h2 class="section-title fade-up">One small build fee.<br>One simple monthly.</h2>
+    <p class="section-sub fade-up">A one-off setup fee gets everything built. Your monthly covers hosting, AI tokens, support, and continuous improvements.</p>
+    <div class="pricing-toggle">
+      <span class="toggle-label active" id="monthly-lbl">Monthly</span>
+      <div class="toggle-track" id="toggle-btn" onclick="toggleBilling()"><div class="toggle-thumb"></div></div>
+      <span class="toggle-label" id="annual-lbl">Annual</span>
+      <span class="toggle-save">Save 20%</span>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card fade-up">
+        <div class="plan-badge badge-purple">Starter</div>
+        <div class="plan-name">AI Essentials</div>
+        <div class="plan-tagline">Your first AI agent, fully set up and working — the ideal starting point.</div>
+        <div class="plan-build"><div class="plan-build-label">Build Fee — one-off</div><div class="plan-build-price">£299 <span>paid once</span></div></div>
+        <div class="plan-monthly"><div class="plan-monthly-label">Then monthly</div><div class="plan-monthly-price"><span class="price-val" data-monthly="79" data-annual="63">£79</span><span>/mo</span></div><div class="plan-monthly-breakdown">Includes hosting · AI tokens · email support</div></div>
+        <ul class="plan-includes"><li class="inc-bold">1 custom AI agent (your choice)</li><li>Agent trained on your business</li><li>Plain-English onboarding session</li><li>AI token allowance (up to 5k chats/mo)</li><li>Secure cloud hosting</li><li>Email support</li><li>Monthly performance summary</li></ul>
+        <a href="#contact" class="plan-cta cta-outline">Get Started →</a>
+      </div>
+      <div class="plan-card plan-featured fade-up">
+        <div class="plan-badge badge-gradient">Most Popular</div>
+        <div class="plan-name">AI Pro</div>
+        <div class="plan-tagline">Multiple agents working together — the full AI team for your business.</div>
+        <div class="plan-build"><div class="plan-build-label">Build Fee — one-off</div><div class="plan-build-price">£599 <span>paid once</span></div></div>
+        <div class="plan-monthly"><div class="plan-monthly-label">Then monthly</div><div class="plan-monthly-price"><span class="price-val" data-monthly="149" data-annual="119">£149</span><span>/mo</span></div><div class="plan-monthly-breakdown">Includes hosting · AI tokens · priority support</div></div>
+        <ul class="plan-includes"><li class="inc-bold">Up to 3 custom AI agents</li><li>All Essentials features</li><li>Higher AI token allowance (20k chats/mo)</li><li>Priority support + monthly strategy call</li><li>Agent improvements every quarter</li><li>Review management agent included</li><li class="inc-bold">Website add-on available (from +£499 build)</li></ul>
+        <a href="#contact" class="plan-cta cta-accent">Get Started →</a>
+      </div>
+      <div class="plan-card fade-up">
+        <div class="plan-badge badge-teal">Full Package</div>
+        <div class="plan-name">AI Pro + Website</div>
+        <div class="plan-tagline">The complete package — agents, website, and everything running together.</div>
+        <div class="plan-build"><div class="plan-build-label">Build Fee — one-off</div><div class="plan-build-price">£999 <span>paid once</span></div></div>
+        <div class="plan-monthly"><div class="plan-monthly-label">Then monthly</div><div class="plan-monthly-price"><span class="price-val" data-monthly="179" data-annual="143">£179</span><span>/mo</span></div><div class="plan-monthly-breakdown">Includes hosting · AI tokens · website · support</div></div>
+        <ul class="plan-includes"><li class="inc-bold">Everything in AI Pro</li><li class="inc-bold">Bespoke website (up to 8 pages)</li><li>Website hosting included</li><li>AI agents integrated into site</li><li>SEO foundations built in</li><li>Quarterly website reviews</li><li>All future agent improvements</li></ul>
+        <a href="#contact" class="plan-cta cta-outline">Get Started →</a>
+      </div>
+    </div>
+    <div class="pricing-explainer fade-up">
+      <div><div class="pe-title">🔨 What's the build fee?</div><div class="pe-desc">A one-off payment covering setup, training your agents, and onboarding. You pay it once and you're set.</div></div>
+      <div><div class="pe-title">📅 What does monthly cover?</div><div class="pe-desc">Cloud hosting, AI token usage, ongoing support, security, and continuous agent improvements as AI evolves.</div></div>
+      <div><div class="pe-title">🔓 Am I locked in?</div><div class="pe-desc">No contracts. Monthly plans cancel with 30 days notice. Annual plans are discounted. Your agents are always yours.</div></div>
     </div>
   </div>
 </section>
