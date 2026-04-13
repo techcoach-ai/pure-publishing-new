@@ -188,6 +188,56 @@ html.hero-ready .hero-animate.in{opacity:1;transform:none}
 .yes{color:var(--teal);font-size:1.05rem}
 .no{color:#ef4444}
 .maybe{color:var(--mid);font-size:.8rem}
+
+/* ── PROCESS ── */
+.process-section{background:var(--bg-alt);padding:8rem 5%;text-align:center}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:4rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:calc(12.5% + 28px);right:calc(12.5% + 28px);height:1px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:.2;pointer-events:none}
+.ps{text-align:center;padding:0 .5rem}
+.ps-num{width:56px;height:56px;border-radius:50%;margin:0 auto 1.25rem;background:var(--card-bg);border:1.5px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:var(--accent);transition:background .3s,border-color .3s,transform .3s,box-shadow .3s;position:relative;z-index:1}
+.ps:hover .ps-num{background:var(--accent);color:#fff;border-color:var(--accent);transform:scale(1.15);box-shadow:0 8px 24px var(--accent-glow)}
+.ps h3{font-size:1rem;font-weight:600;margin-bottom:.45rem;color:var(--text)}
+.ps p{font-size:.84rem;color:var(--mid);line-height:1.65}
+/* ── TESTIMONIALS ── */
+.testi-section{background:var(--bg);padding:8rem 5%;text-align:center}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:4rem}
+.testi-card{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:18px;padding:2rem;text-align:left;transition:transform .3s,border-color .3s,box-shadow .3s}
+.testi-card:hover{transform:translateY(-4px);border-color:rgba(91,92,246,.22);box-shadow:0 12px 36px rgba(91,92,246,.08)}
+.testi-stars{color:#f59e0b;font-size:.82rem;letter-spacing:2px;margin-bottom:1rem}
+.testi-text{font-size:.88rem;color:var(--text-soft);line-height:1.75;margin-bottom:1.5rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:.75rem}
+.testi-av{width:38px;height:38px;border-radius:50%;background:rgba(91,92,246,.1);border:1px solid rgba(91,92,246,.2);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.testi-name{font-size:.88rem;font-weight:600;color:var(--text)}
+.testi-role{font-size:.75rem;color:var(--mid)}
+/* ── FAQ ── */
+.faq-section{background:var(--bg-alt);padding:8rem 5%;text-align:center}
+.faq-wrap{max-width:720px;margin:4rem auto 0;text-align:left}
+.faq-item{border-bottom:1px solid var(--card-border)}
+.faq-btn{width:100%;background:none;border:none;padding:1.4rem 0;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;font-family:inherit;font-size:.97rem;font-weight:500;color:var(--text);cursor:pointer;text-align:left;transition:color .2s}
+.faq-btn:hover{color:var(--accent)}
+.faq-icon{width:24px;height:24px;border-radius:50%;flex-shrink:0;background:var(--bg-alt2);border:1.5px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:transform .35s,background .2s;color:var(--mid)}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.faq-body p{font-size:.88rem;color:var(--mid);line-height:1.8;padding-bottom:1.4rem}
+.faq-item.open .faq-body{max-height:300px}
+/* ── CTA ── */
+.cta-section{background:linear-gradient(160deg,#f0f1ff 0%,#f0fafa 100%);padding:10rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:450px;background:radial-gradient(ellipse,rgba(91,92,246,.08) 0%,transparent 70%);pointer-events:none}
+.cta-section .section-title{font-size:clamp(2.5rem,6vw,5rem);margin-bottom:1.25rem}
+.contact-row{display:flex;justify-content:center;gap:1.25rem;margin-top:3rem;flex-wrap:wrap}
+.contact-chip{display:flex;align-items:center;gap:.6rem;background:#fff;border:1.5px solid var(--card-border);padding:.75rem 1.5rem;border-radius:50px;font-size:.88rem;color:var(--text-soft);text-decoration:none;transition:border-color .2s,box-shadow .2s}
+.contact-chip:hover{border-color:var(--accent);box-shadow:0 4px 16px var(--accent-glow)}
+/* ── FOOTER ── */
+footer{background:var(--text);padding:4rem 5% 2rem;border-top:1px solid rgba(255,255,255,.08)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand{font-size:1.05rem;font-weight:700;color:#fff;text-decoration:none;display:block;margin-bottom:.75rem}
+.footer-brand span{color:#a5a6ff}
+.footer-desc{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7}
+.footer-col h5{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-col ul a{font-size:.84rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;font-size:.77rem;color:rgba(255,255,255,.35)}
 </style>
 </head>
 <body id="top">
@@ -472,5 +522,85 @@ html.hero-ready .hero-animate.in{opacity:1;transform:none}
     </div>
   </div>
 </section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="inner">
+    <span class="eyebrow fade-up">Getting Started</span>
+    <h2 class="section-title fade-up">Up and running in days,<br>not months.</h2>
+    <p class="section-sub fade-up">From free chat to live agents — straightforward from start to finish.</p>
+    <div class="process-steps fade-up">
+      <div class="ps"><div class="ps-num">01</div><h3>Free Chat</h3><p>30 minutes to understand your business. No pressure, just listening.</p></div>
+      <div class="ps"><div class="ps-num">02</div><h3>We Build</h3><p>We configure your agents and train them on your business. 5–7 working days.</p></div>
+      <div class="ps"><div class="ps-num">03</div><h3>Handover</h3><p>We walk you through everything in plain English. You're in control.</p></div>
+      <div class="ps"><div class="ps-num">04</div><h3>Go Live</h3><p>Your agents start working. We monitor, report, and improve every quarter.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="inner">
+    <span class="eyebrow fade-up">Testimonials</span>
+    <h2 class="section-title fade-up">Businesses like yours.</h2>
+    <p class="section-sub fade-up">Real results from local businesses in Hastings and East Sussex.</p>
+    <div class="testi-grid">
+      <div class="testi-card fade-up"><div class="testi-stars">★★★★★</div><p class="testi-text">"The enquiry agent was responding to customers at 11pm while I was asleep. Woke up to three new bookings I didn't have to do anything for."</p><div class="testi-author"><div class="testi-av">🔧</div><div><div class="testi-name">Dave P.</div><div class="testi-role">Plumber, St Leonards-on-Sea</div></div></div></div>
+      <div class="testi-card fade-up"><div class="testi-stars">★★★★★</div><p class="testi-text">"I used to spend Sunday evenings writing social posts. Now the content agent does it in minutes. They explained everything without making me feel out of my depth."</p><div class="testi-author"><div class="testi-av">🌸</div><div><div class="testi-name">Sarah M.</div><div class="testi-role">Florist, Hastings Old Town</div></div></div></div>
+      <div class="testi-card fade-up"><div class="testi-stars">★★★★★</div><p class="testi-text">"We got the full package — website plus agents. The whole thing paid for itself inside two months from the extra bookings the agent captured."</p><div class="testi-author"><div class="testi-av">💆</div><div><div class="testi-name">Rachel T.</div><div class="testi-role">Beauty Salon, Bexhill</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="inner">
+    <span class="eyebrow fade-up">FAQ</span>
+    <h2 class="section-title fade-up">Questions, answered.</h2>
+    <p class="section-sub fade-up">Plain answers. No waffle.</p>
+    <div class="faq-wrap">
+      <div class="faq-item fade-up"><button class="faq-btn" onclick="toggleFaq(this)">What exactly is an AI agent? <span class="faq-icon">+</span></button><div class="faq-body"><p>An AI agent is software that holds conversations, makes decisions, and takes actions for your business automatically. Think of it as a capable team member who works 24/7, never tires, and responds in seconds. We build it, train it, and manage it for you.</p></div></div>
+      <div class="faq-item fade-up"><button class="faq-btn" onclick="toggleFaq(this)">Do I need any technical knowledge? <span class="faq-icon">+</span></button><div class="faq-body"><p>None at all. We handle every technical aspect. Your job is to tell us about your business. If you can use WhatsApp, you can work with us.</p></div></div>
+      <div class="faq-item fade-up"><button class="faq-btn" onclick="toggleFaq(this)">What are AI tokens and why do they cost money? <span class="faq-icon">+</span></button><div class="faq-body"><p>Tokens are the "fuel" AI models run on. Your monthly plan includes a generous allowance — like a mobile data plan. We'll let you know if you're getting close to the limit.</p></div></div>
+      <div class="faq-item fade-up"><button class="faq-btn" onclick="toggleFaq(this)">Can the agent get things wrong? <span class="faq-icon">+</span></button><div class="faq-body"><p>We train carefully and set guardrails. The agent is also designed to hand over to you when unsure. We review and improve yours every quarter based on real conversations.</p></div></div>
+      <div class="faq-item fade-up"><button class="faq-btn" onclick="toggleFaq(this)">Do I have to have a website to get an AI agent? <span class="faq-icon">+</span></button><div class="faq-body"><p>No — agents can run on WhatsApp, Facebook Messenger, Instagram and more. A website makes agents more effective, which is why we offer our Full Package combining both.</p></div></div>
+      <div class="faq-item fade-up"><button class="faq-btn" onclick="toggleFaq(this)">Am I locked into a contract? <span class="faq-icon">+</span></button><div class="faq-body"><p>No long-term contracts. Monthly plans cancel with 30 days notice. Annual plans are discounted. If you cancel, your agents and website remain yours.</p></div></div>
+      <div class="faq-item fade-up"><button class="faq-btn" onclick="toggleFaq(this)">What makes you different from a national AI company? <span class="faq-icon">+</span></button><div class="faq-body"><p>We're local — based in Hastings, East Sussex. We meet face to face, understand the local market, and you'll always speak to the same person. We become a partner, not just a subscription.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow"></div>
+  <div style="position:relative;z-index:1">
+    <span class="eyebrow" style="display:block;margin-bottom:1.5rem">Let's Talk</span>
+    <h2 class="section-title fade-up">Start working smarter<br>this week.</h2>
+    <p class="section-sub fade-up">Book a free 30-minute chat. We'll listen, be honest about what'll work for you, and put together a plan with no obligation.</p>
+    <div class="contact-row fade-up">
+      <a href="mailto:hello@brightminddigital.co.uk" class="contact-chip">📧 hello@brightminddigital.co.uk</a>
+      <a href="tel:01424000000" class="contact-chip">📞 01424 000 000</a>
+      <a href="#contact" class="btn btn-glow">Book Your Free Chat →</a>
+    </div>
+    <p style="margin-top:2rem;font-size:.8rem;color:var(--mid)">Based in Hastings, East Sussex · No jargon, ever · No hard sell</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#top" class="footer-brand">Bright<span>Mind</span> Digital</a>
+      <p class="footer-desc">AI agents and web design for small and medium businesses in Hastings and East Sussex. Plain English. Real results.</p>
+    </div>
+    <div class="footer-col"><h5>AI Agents</h5><ul><li><a href="#agents">Customer Agent</a></li><li><a href="#agents">Content Agent</a></li><li><a href="#agents">Review Agent</a></li><li><a href="#agents">Follow-Up Agent</a></li><li><a href="#agents">Insight Agent</a></li></ul></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="#pricing">Pricing &amp; Plans</a></li><li><a href="#agents">Website Add-on</a></li><li><a href="#how">How It Works</a></li><li><a href="#contact">About Us</a></li></ul></div>
+    <div class="footer-col"><h5>Get Help</h5><ul><li><a href="#faq">FAQ</a></li><li><a href="#contact">Book Free Chat</a></li><li><a href="#contact">Contact</a></li><li><a href="#contact">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 BrightMind Digital. All rights reserved.</span>
+    <span>📍 Hastings, East Sussex</span>
+  </div>
+</footer>
 </body>
 </html>
