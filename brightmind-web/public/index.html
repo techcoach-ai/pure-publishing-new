@@ -149,6 +149,45 @@ html.hero-ready .hero-animate.in{opacity:1;transform:none}
 .pricing-explainer{margin-top:3rem;background:var(--bg);border:1.5px solid var(--card-border);border-radius:18px;padding:2rem 2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 .pe-title{font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
 .pe-desc{font-size:.8rem;color:var(--mid);line-height:1.65}
+
+/* ── HOW IT WORKS ── */
+.how-section{background:var(--bg);padding:8rem 5%}
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem}
+.how-sticky{position:sticky;top:90px}
+.how-steps{display:flex;flex-direction:column}
+.how-step{padding:1.75rem 0;border-bottom:1px solid var(--card-border);display:flex;gap:1.25rem;align-items:flex-start;opacity:.3;transition:opacity .4s;cursor:pointer}
+.how-step:last-child{border-bottom:none}
+.how-step.active{opacity:1}
+.how-step-num{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:rgba(91,92,246,.08);border:1px solid rgba(91,92,246,.2);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--accent);transition:background .3s,border-color .3s}
+.how-step.active .how-step-num{background:var(--accent);border-color:var(--accent);color:#fff}
+.how-step h3{font-size:1rem;font-weight:600;margin-bottom:.35rem;color:var(--text)}
+.how-step p{font-size:.87rem;color:var(--mid);line-height:1.65}
+.how-demo-panel{display:flex;flex-direction:column;gap:1rem}
+.how-demo{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:16px;padding:1.75rem;transition:border-color .4s,background .4s,box-shadow .4s}
+.how-demo.active{border-color:rgba(91,92,246,.3);background:rgba(91,92,246,.03);box-shadow:0 8px 32px rgba(91,92,246,.08)}
+.demo-label{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+/* ── INCLUDED ── */
+.included-section{background:var(--bg-alt);padding:8rem 5%;text-align:center}
+.included-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:4rem}
+.inc-card{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:16px;padding:1.75rem 1.5rem;transition:transform .3s,border-color .3s,box-shadow .3s}
+.inc-card:hover{transform:translateY(-4px);border-color:rgba(91,92,246,.22);box-shadow:0 10px 30px rgba(91,92,246,.08)}
+.inc-icon{font-size:1.8rem;margin-bottom:1rem}
+.inc-name{font-size:.95rem;font-weight:600;margin-bottom:.35rem;color:var(--text)}
+.inc-desc{font-size:.82rem;color:var(--mid);line-height:1.6}
+/* ── COMPARE ── */
+.compare-section{background:var(--bg);padding:8rem 5%;text-align:center}
+.compare-wrap{max-width:820px;margin:4rem auto 0;background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.cmp-row{display:grid;grid-template-columns:1.6fr 1fr 1fr;border-bottom:1px solid var(--card-border);transition:background .2s}
+.cmp-row:last-child{border-bottom:none}
+.cmp-row:not(.cmp-hdr):hover{background:var(--bg-alt)}
+.cmp-cell{padding:1rem 1.5rem;font-size:.87rem;display:flex;align-items:center;justify-content:center;text-align:center}
+.cmp-cell:first-child{justify-content:flex-start;color:var(--text-soft)}
+.cmp-hdr .cmp-cell{font-size:.73rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);padding:1.25rem 1.5rem;background:var(--bg-alt)}
+.cmp-hdr .us{color:var(--accent)}
+.us{background:rgba(91,92,246,.03)}
+.yes{color:var(--teal);font-size:1.05rem}
+.no{color:#ef4444}
+.maybe{color:var(--mid);font-size:.8rem}
 </style>
 </head>
 <body id="top">
@@ -333,6 +372,103 @@ html.hero-ready .hero-animate.in{opacity:1;transform:none}
       <div><div class="pe-title">🔨 What's the build fee?</div><div class="pe-desc">A one-off payment covering setup, training your agents, and onboarding. You pay it once and you're set.</div></div>
       <div><div class="pe-title">📅 What does monthly cover?</div><div class="pe-desc">Cloud hosting, AI token usage, ongoing support, security, and continuous agent improvements as AI evolves.</div></div>
       <div><div class="pe-title">🔓 Am I locked in?</div><div class="pe-desc">No contracts. Monthly plans cancel with 30 days notice. Annual plans are discounted. Your agents are always yours.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="inner">
+    <span class="eyebrow fade-up">How It Works</span>
+    <h2 class="section-title fade-up">We do the heavy lifting.<br>You see the results.</h2>
+    <p class="section-sub fade-up" style="margin:0">From first chat to live agents — here's exactly what happens.</p>
+    <div class="how-grid">
+      <div class="how-sticky">
+        <div class="how-steps" id="how-steps">
+          <div class="how-step active" data-demo="0"><div class="how-step-num">01</div><div><h3>Free Discovery Call</h3><p>We learn about your business — the repetitive tasks, the missed calls, the time-sinks. We map out which agents will have the biggest impact.</p></div></div>
+          <div class="how-step" data-demo="1"><div class="how-step-num">02</div><div><h3>We Build Your Agents</h3><p>We configure and train each agent on your business — your products, prices, tone of voice, FAQs. Usually ready within 5–7 working days.</p></div></div>
+          <div class="how-step" data-demo="2"><div class="how-step-num">03</div><div><h3>Plain-English Handover</h3><p>We walk through everything — virtually or in person in Hastings. No jargon. You'll know exactly what each agent does.</p></div></div>
+          <div class="how-step" data-demo="3"><div class="how-step-num">04</div><div><h3>Live — and Getting Smarter</h3><p>Your agents go live. We monitor performance, send plain-English summaries, and make improvements each quarter.</p></div></div>
+        </div>
+      </div>
+      <div class="how-demo-panel" id="how-demos">
+        <div class="how-demo active" data-index="0">
+          <div class="demo-label">✦ Discovery — What We Ask</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.84rem">
+            <div style="background:#f1f3f9;border-radius:10px;padding:.7rem 1rem;color:#374151">💬 "What's the most common question you get from customers?"</div>
+            <div style="background:#f1f3f9;border-radius:10px;padding:.7rem 1rem;color:#374151">💬 "What tasks eat up most of your week?"</div>
+            <div style="background:#f1f3f9;border-radius:10px;padding:.7rem 1rem;color:#374151">💬 "What happens to enquiries that come in at 9pm?"</div>
+            <div style="background:rgba(14,165,160,.07);border:1px solid rgba(14,165,160,.2);border-radius:10px;padding:.7rem 1rem;color:var(--teal)">→ We map the perfect agent setup in 30 minutes</div>
+          </div>
+        </div>
+        <div class="how-demo" data-index="1">
+          <div class="demo-label">✦ Build — What Goes In</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.83rem">
+            <div style="background:#f1f3f9;border-radius:10px;padding:.75rem">📋 Your FAQs &amp; pricing</div>
+            <div style="background:#f1f3f9;border-radius:10px;padding:.75rem">🗣️ Your tone of voice</div>
+            <div style="background:#f1f3f9;border-radius:10px;padding:.75rem">📅 Booking rules &amp; availability</div>
+            <div style="background:#f1f3f9;border-radius:10px;padding:.75rem">📍 Your area &amp; services</div>
+            <div style="background:#f1f3f9;border-radius:10px;padding:.75rem">⚠️ Things it should never say</div>
+            <div style="background:#f1f3f9;border-radius:10px;padding:.75rem">🔗 Your existing systems</div>
+          </div>
+        </div>
+        <div class="how-demo" data-index="2">
+          <div class="demo-label">✦ Handover — What You Get</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.83rem">
+            <div style="display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">✓</span><span style="color:#374151">A live demo of every agent, in plain English</span></div>
+            <div style="display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">✓</span><span style="color:#374151">A one-page cheat sheet of what each agent does</span></div>
+            <div style="display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">✓</span><span style="color:#374151">How to update it when your prices change</span></div>
+            <div style="display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">✓</span><span style="color:#374151">Our number for any questions (we answer fast)</span></div>
+          </div>
+        </div>
+        <div class="how-demo" data-index="3">
+          <div class="demo-label">✦ Month 1 — Real Results</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;text-align:center;font-size:.83rem">
+            <div style="background:#f1f3f9;border-radius:12px;padding:1rem"><div style="font-size:1.6rem;font-weight:700;color:var(--accent)">24/7</div><div style="color:var(--mid);margin-top:.2rem">Enquiries answered</div></div>
+            <div style="background:#f1f3f9;border-radius:12px;padding:1rem"><div style="font-size:1.6rem;font-weight:700;color:var(--teal)">~4hrs</div><div style="color:var(--mid);margin-top:.2rem">Admin saved weekly</div></div>
+            <div style="background:#f1f3f9;border-radius:12px;padding:1rem"><div style="font-size:1.6rem;font-weight:700;color:#d97706">+31%</div><div style="color:var(--mid);margin-top:.2rem">Lead conversion</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="inner">
+    <span class="eyebrow fade-up">Your Monthly — Unpacked</span>
+    <h2 class="section-title fade-up">Everything's included.<br>No nasty surprises.</h2>
+    <p class="section-sub fade-up">Your monthly subscription keeps your AI agents smart, live, and improving.</p>
+    <div class="included-grid">
+      <div class="inc-card fade-up"><div class="inc-icon">⚡</div><div class="inc-name">AI Token Allowance</div><div class="inc-desc">Tokens are the "fuel" your agents run on. Your plan includes a generous monthly allowance — no surprise bills.</div></div>
+      <div class="inc-card fade-up"><div class="inc-icon">☁️</div><div class="inc-name">Secure Cloud Hosting</div><div class="inc-desc">Fast, secure UK-based servers. Backups run daily. Uptime monitored around the clock.</div></div>
+      <div class="inc-card fade-up"><div class="inc-icon">🔧</div><div class="inc-name">Ongoing Support</div><div class="inc-desc">We're a real local team. Email or call us and you'll hear back fast — usually same day.</div></div>
+      <div class="inc-card fade-up"><div class="inc-icon">📈</div><div class="inc-name">Quarterly Agent Updates</div><div class="inc-desc">AI moves fast. We review and improve your agents every quarter so you always have the latest.</div></div>
+      <div class="inc-card fade-up"><div class="inc-icon">📋</div><div class="inc-name">Monthly Performance Report</div><div class="inc-desc">Plain-English summary every month — chats handled, leads captured, hours saved.</div></div>
+      <div class="inc-card fade-up"><div class="inc-icon">🔒</div><div class="inc-name">Security &amp; Compliance</div><div class="inc-desc">Your customer data is handled responsibly. We keep up with AI regulations so you don't have to.</div></div>
+      <div class="inc-card fade-up"><div class="inc-icon">🌐</div><div class="inc-name">Website Hosting (Full Package)</div><div class="inc-desc">On the Full Package, website hosting is included — SSL, daily backups, speed optimisation.</div></div>
+      <div class="inc-card fade-up"><div class="inc-icon">🧠</div><div class="inc-name">Continuous Learning</div><div class="inc-desc">Your agents get smarter over time. We fine-tune them based on real conversations.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare-section">
+  <div class="inner">
+    <span class="eyebrow fade-up">The Difference</span>
+    <h2 class="section-title fade-up">Us vs everyone else.</h2>
+    <p class="section-sub fade-up">No other local agency offers what we do.</p>
+    <div class="compare-wrap fade-up">
+      <div class="cmp-row cmp-hdr"><div class="cmp-cell" style="justify-content:flex-start">Capability</div><div class="cmp-cell">Other Agencies</div><div class="cmp-cell us">BrightMind Digital</div></div>
+      <div class="cmp-row"><div class="cmp-cell">Custom AI agents</div><div class="cmp-cell"><span class="no">✗</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
+      <div class="cmp-row"><div class="cmp-cell">Agents trained on your business</div><div class="cmp-cell"><span class="no">✗</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
+      <div class="cmp-row"><div class="cmp-cell">24/7 customer handling</div><div class="cmp-cell"><span class="no">✗</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
+      <div class="cmp-row"><div class="cmp-cell">Web design</div><div class="cmp-cell"><span class="yes">✓</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
+      <div class="cmp-row"><div class="cmp-cell">Plain English, guaranteed</div><div class="cmp-cell"><span class="maybe">Sometimes</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
+      <div class="cmp-row"><div class="cmp-cell">Monthly token allowance included</div><div class="cmp-cell"><span class="no">✗</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
+      <div class="cmp-row"><div class="cmp-cell">Quarterly agent improvements</div><div class="cmp-cell"><span class="no">✗</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
+      <div class="cmp-row"><div class="cmp-cell">Local Hastings team</div><div class="cmp-cell"><span class="maybe">Some</span></div><div class="cmp-cell us"><span class="yes">✓</span></div></div>
     </div>
   </div>
 </section>
