@@ -375,3 +375,39 @@ video {
 .dot-pulse-coral {
   animation: pulse-coral 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* ─────────────────────────────────────────
+   AI Demo widget buttons
+   Used in components/AiDemo.tsx for the
+   business-type grid and answer buttons.
+───────────────────────────────────────── */
+.demo-btn {
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.demo-btn:hover {
+  border-color: var(--coral) !important;
+  background: rgba(255, 107, 107, 0.07) !important;
+}
+
+/* ─────────────────────────────────────────
+   Typing indicator dots — AI Demo Step 3
+   Three coral dots with staggered bounce.
+   Set animation-delay inline per dot.
+───────────────────────────────────────── */
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40%           { transform: translateY(-7px); }
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  animation: dot-bounce 1.4s ease-in-out infinite;
+}
