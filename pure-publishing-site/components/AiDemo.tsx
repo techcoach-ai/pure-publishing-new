@@ -1,12 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 /* ═══════════════════════════════════════════════════════════
    Types
 ═══════════════════════════════════════════════════════════ */
 
 type Step = 1 | 2 | 3;
+
+interface DemoResult {
+  message: string;
+  statNum: string;
+  statLabel: string;
+  statSub: string;
+}
 
 /* ═══════════════════════════════════════════════════════════
    Business type data — Step 1
@@ -119,31 +127,95 @@ const BIZ_QUESTIONS: Record<string, BizQuestion> = {
 };
 
 /* ═══════════════════════════════════════════════════════════
-   AiDemo component
+   Typewriter hook
+   Reveals `fullText` one character at a time at `speed` ms/char.
+   Returns the currently-visible slice and a `done` flag.
+═══════════════════════════════════════════════════════════ */
 
-   selectedBiz    — business type key chosen in Step 1
-   selectedAnswer — challenge text chosen in Step 2
-   Both are available in the component scope for Step 3
-   (API call + response display added in the next prompt).
+function useTypewriter(fullText: string, speed = 18) {
+  const [displayed, setDisplayed] = useState("");
+  const [done,      setDone]      = useState(false);
+  const idxRef  = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    /* Reset whenever the source text changes */
+    setDisplayed("");
+    setDone(false);
+    idxRef.current = 0;
+
+    if (!fullText) return;
+
+    const tick = () => {
+      idxRef.current += 1;
+      setDisplayed(fullText.slice(0, idxRef.current));
+      if (idxRef.current < fullText.length) {
+        timerRef.current = setTimeout(tick, speed);
+      } else {
+        setDone(true);
+      }
+    };
+
+    timerRef.current = setTimeout(tick, speed);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [fullText, speed]);
+
+  return { displayed, done };
+}
+
+/* ═══════════════════════════════════════════════════════════
+   AiDemo component
 ═══════════════════════════════════════════════════════════ */
 
 export default function AiDemo() {
   const [currentStep,    setCurrentStep]    = useState<Step>(1);
   const [selectedBiz,    setSelectedBiz]    = useState<string>("");
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
+  const [isLoading,      setIsLoading]      = useState<boolean>(false);
+  const [result,         setResult]         = useState<DemoResult | null>(null);
+
+  const { displayed: typedText, done: typingDone } = useTypewriter(
+    result?.message ?? "",
+    18
+  );
 
   /* Step 1 → 2: user picks a business type */
   const handleBizSelect = (key: string) => {
     setSelectedBiz(key);
     setSelectedAnswer("");
+    setResult(null);
     setCurrentStep(2);
   };
 
-  /* Step 2 → 3: user picks their main challenge */
-  const handleAnswerSelect = (answer: string) => {
+  /* Step 2 → 3: user picks their main challenge, triggers API call */
+  const handleAnswerSelect = async (answer: string) => {
     setSelectedAnswer(answer);
+    setResult(null);
+    setIsLoading(true);
     setCurrentStep(3);
-    // API call will be wired here in the next prompt
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ businessType: selectedBiz, challenge: answer }),
+      });
+      const data = (await res.json()) as DemoResult;
+      setResult(data);
+    } catch {
+      setResult({
+        message:
+          "That's a really common one! An AI solution can handle this automatically — trained on your business, running 24/7. Most of our clients free up hours every week within the first month.",
+        statNum:   "4 hrs",
+        statLabel: "saved per week",
+        statSub:   "on average for similar businesses",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   /* Back to Step 1 */
@@ -151,6 +223,8 @@ export default function AiDemo() {
     setCurrentStep(1);
     setSelectedBiz("");
     setSelectedAnswer("");
+    setResult(null);
+    setIsLoading(false);
   };
 
   const currentData = selectedBiz ? BIZ_QUESTIONS[selectedBiz] : null;
@@ -167,7 +241,6 @@ export default function AiDemo() {
       {/* ── Step 1 — Business type selection ─────────────────── */}
       {currentStep === 1 && (
         <div>
-          {/* Header */}
           <p
             className="font-syne font-semibold text-xs uppercase tracking-widest mb-2"
             style={{ color: "var(--coral)" }}
@@ -194,10 +267,7 @@ export default function AiDemo() {
                   borderColor: "var(--card-border)",
                 }}
               >
-                <span
-                  className="text-2xl leading-none select-none"
-                  aria-hidden="true"
-                >
+                <span className="text-2xl leading-none select-none" aria-hidden="true">
                   {emoji}
                 </span>
                 <span
@@ -215,7 +285,6 @@ export default function AiDemo() {
       {/* ── Step 2 — Challenge question ──────────────────────── */}
       {currentStep === 2 && currentData && (
         <div>
-          {/* Header */}
           <p
             className="font-syne font-semibold text-xs uppercase tracking-widest mb-3"
             style={{ color: "var(--coral)" }}
@@ -223,7 +292,6 @@ export default function AiDemo() {
             ✦ Quick question for you
           </p>
 
-          {/* Question */}
           <p
             className="font-syne font-bold text-lg md:text-xl leading-snug mb-5"
             style={{ color: "var(--deep-indigo)" }}
@@ -231,7 +299,6 @@ export default function AiDemo() {
             {currentData.question}
           </p>
 
-          {/* Answer buttons — full width, left-aligned */}
           <div className="flex flex-col gap-3">
             {currentData.answers.map((answer) => (
               <button
@@ -254,7 +321,6 @@ export default function AiDemo() {
             ))}
           </div>
 
-          {/* Back link */}
           <button
             type="button"
             onClick={handleReset}
@@ -266,27 +332,121 @@ export default function AiDemo() {
         </div>
       )}
 
-      {/* ── Step 3 — Placeholder (API call + response added next prompt) ── */}
+      {/* ── Step 3 — AI response ─────────────────────────────── */}
       {currentStep === 3 && (
-        <div className="flex flex-col items-center gap-4 py-10 text-center">
+        <div>
 
-          {/* Typing indicator — 3 staggered bouncing coral dots */}
-          <div
-            className="flex items-center gap-1.5"
-            role="status"
-            aria-label="Loading recommendation"
-          >
-            <span className="typing-dot" style={{ animationDelay: "0ms" }}   />
-            <span className="typing-dot" style={{ animationDelay: "160ms" }} />
-            <span className="typing-dot" style={{ animationDelay: "320ms" }} />
-          </div>
+          {/* ── Loading — typing indicator ── */}
+          {isLoading && (
+            <div className="flex flex-col items-center gap-4 py-10 text-center">
+              <div
+                className="flex items-center gap-1.5"
+                role="status"
+                aria-label="Loading recommendation"
+              >
+                <span className="typing-dot" style={{ animationDelay: "0ms" }}   />
+                <span className="typing-dot" style={{ animationDelay: "160ms" }} />
+                <span className="typing-dot" style={{ animationDelay: "320ms" }} />
+              </div>
+              <p className="font-nunito text-sm" style={{ color: "var(--text-muted)" }}>
+                Getting your personalised AI recommendation&hellip;
+              </p>
+            </div>
+          )}
 
-          <p
-            className="font-nunito text-sm"
-            style={{ color: "var(--text-muted)" }}
-          >
-            Getting your personalised AI recommendation&hellip;
-          </p>
+          {/* ── Response — typewriter + stat card + CTAs ── */}
+          {!isLoading && result && (
+            <div>
+
+              {/* Coral label */}
+              <p
+                className="font-syne font-semibold text-xs uppercase tracking-widest mb-4"
+                style={{ color: "var(--coral)" }}
+              >
+                ✦ Here&apos;s what AI could do for you
+              </p>
+
+              {/* Typewriter message */}
+              <p
+                className="font-nunito text-sm leading-relaxed mb-6"
+                style={{
+                  color: "var(--text-soft)",
+                  minHeight: "4.5rem", /* prevents layout shift while typing */
+                }}
+              >
+                {typedText}
+                {/* Blinking cursor while typing */}
+                {!typingDone && (
+                  <span
+                    className="inline-block w-0.5 h-4 ml-0.5 align-middle animate-pulse"
+                    style={{ background: "var(--coral)" }}
+                    aria-hidden="true"
+                  />
+                )}
+              </p>
+
+              {/* Stat highlight card — fades in once typing is done */}
+              <div
+                className="rounded-xl p-5 mb-6 transition-all duration-500"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(14,165,160,0.08) 100%)",
+                  border: "1px solid rgba(255,107,107,0.2)",
+                  opacity: typingDone ? 1 : 0,
+                  transform: typingDone ? "translateY(0)" : "translateY(10px)",
+                }}
+                aria-hidden={!typingDone}
+              >
+                <p
+                  className="font-syne font-bold text-3xl leading-none mb-1"
+                  style={{ color: "var(--coral)" }}
+                >
+                  {result.statNum}
+                </p>
+                <p
+                  className="font-syne font-bold text-base mb-1"
+                  style={{ color: "var(--deep-indigo)" }}
+                >
+                  {result.statLabel}
+                </p>
+                <p
+                  className="font-nunito text-xs"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {result.statSub}
+                </p>
+              </div>
+
+              {/* CTAs */}
+              <div
+                className="flex flex-wrap items-center gap-3 transition-all duration-500"
+                style={{
+                  opacity: typingDone ? 1 : 0,
+                  transform: typingDone ? "translateY(0)" : "translateY(8px)",
+                }}
+              >
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full font-nunito font-bold text-sm transition-all duration-300 hover:scale-105"
+                  style={{
+                    border: "2px solid var(--coral)",
+                    color: "var(--coral)",
+                  }}
+                >
+                  See our plans →
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="font-nunito text-sm cursor-pointer hover:underline transition-opacity duration-200 opacity-70 hover:opacity-100"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  Try another business
+                </button>
+              </div>
+
+            </div>
+          )}
 
         </div>
       )}
