@@ -669,7 +669,118 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* More sections coming soon */}
+      {/* ═══════════════════════════════════════════════════════════
+          6. CTA — LET'S TALK
+      ═══════════════════════════════════════════════════════════ */}
+      <section
+        id="cta"
+        className="relative overflow-hidden"
+        style={{
+          background: "linear-gradient(160deg, #f0f0ff 0%, #f0fafa 100%)",
+          paddingTop: "10rem",
+          paddingBottom: "10rem",
+        }}
+      >
+        {/* Single large blurred glow orb — static, centred behind content */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden="true"
+        >
+          <div
+            style={{
+              width: 720,
+              height: 720,
+              borderRadius: "50%",
+              background:
+                "radial-gradient(circle, rgba(255,107,107,0.13) 0%, rgba(14,165,160,0.07) 45%, transparent 70%)",
+              filter: "blur(80px)",
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+
+          {/* Eyebrow */}
+          <p
+            className="font-syne font-semibold text-sm uppercase tracking-widest mb-5"
+            style={{ color: "var(--coral)" }}
+            data-animate
+          >
+            Let&apos;s Talk
+          </p>
+
+          {/* Title */}
+          <h2
+            className="font-syne font-bold leading-tight mb-7"
+            style={{
+              fontSize: "clamp(2.6rem, 5.5vw, 4.8rem)",
+              letterSpacing: "-0.035em",
+              color: "var(--deep-indigo)",
+            }}
+            data-animate
+            data-delay="100"
+          >
+            Let&apos;s get your business working smarter.
+          </h2>
+
+          {/* Subtitle — SEO: AI solutions for small business, Hastings, East Sussex */}
+          <p
+            className="font-nunito text-lg leading-relaxed mb-10"
+            style={{ color: "var(--text-soft)", maxWidth: 580, margin: "0 auto 2.5rem" }}
+            data-animate
+            data-delay="200"
+          >
+            Book a free 30-minute chat about AI solutions for your small business.
+            We&apos;ll listen, be honest about what&apos;ll work for you, and put
+            together a plan — no obligation.
+          </p>
+
+          {/* Contact chips + primary CTA */}
+          <div
+            className="flex flex-wrap items-center justify-center gap-3 mb-8"
+            data-animate
+            data-delay="300"
+          >
+            {/* Email chip */}
+            <a
+              href="mailto:hello@purepublishing.co.uk"
+              className="contact-chip"
+            >
+              📧 hello@purepublishing.co.uk
+            </a>
+
+            {/* Phone chip — placeholder */}
+            <a href="tel:01234567890" className="contact-chip">
+              📞 01234 567 890
+            </a>
+
+            {/* Primary CTA — coral glow, same as hero */}
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-nunito font-bold text-white transition-all duration-300 hover:scale-105 hover:brightness-110"
+              style={{
+                background: "var(--coral)",
+                boxShadow: "0 6px 32px var(--coral-glow)",
+              }}
+            >
+              Book Your Free Chat →
+            </Link>
+          </div>
+
+          {/* Trust line — SEO: affordable AI solutions, website design, Hastings, East Sussex */}
+          <p
+            className="font-nunito text-sm"
+            style={{ color: "var(--text-muted)" }}
+            data-animate
+            data-delay="400"
+          >
+            Affordable AI solutions &amp; website design for small businesses ·
+            Based in St Leonards-on-Sea, Hastings, East Sussex ·{" "}
+            No jargon, ever · No hard sell
+          </p>
+        </div>
+      </section>
     </>
   );
 }
