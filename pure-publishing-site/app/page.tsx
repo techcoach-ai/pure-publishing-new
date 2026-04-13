@@ -55,6 +55,40 @@ const HOW_IT_WORKS = [
   },
 ];
 
+const TABLE_ROWS: Array<{ feature: string; other: boolean | string }> = [
+  { feature: "Custom AI solutions",        other: false },
+  { feature: "AI trained on your business", other: false },
+  { feature: "24/7 customer handling",     other: false },
+  { feature: "Bespoke website design",     other: true },
+  { feature: "Plain-English support",      other: "Sometimes" },
+  { feature: "Affordable monthly plans",   other: false },
+  { feature: "Local team in Hastings",     other: "Some" },
+];
+
+const TESTIMONIALS = [
+  {
+    avatar: "🏰",
+    quote:
+      "Pure Publishing built us a FAQ page with an AI chatbot that answers customer questions automatically. It's saved us around four hours a week in admin alone. Brilliant.",
+    author: "Swallows Oast",
+    role: "Wedding Venue",
+  },
+  {
+    avatar: "🔧",
+    quote:
+      "They set up a system that handles our enquiries outside office hours. We've picked up bookings we'd have completely missed before. Couldn't recommend them enough.",
+    author: "Local Tradesperson",
+    role: "Hastings",
+  },
+  {
+    avatar: "🏢",
+    quote:
+      "I was nervous about AI but they explained everything without any jargon. The whole process was painless and the results speak for themselves.",
+    author: "Small Business Owner",
+    role: "East Sussex",
+  },
+];
+
 /* ═══════════════════════════════════════════════════════════
    Page component
 ═══════════════════════════════════════════════════════════ */
@@ -430,6 +464,204 @@ export default function HomePage() {
                   >
                     {step.desc}
                   </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          4. WHY PURE PUBLISHING — COMPARISON TABLE
+      ═══════════════════════════════════════════════════════════ */}
+      <section
+        id="why-us"
+        className="py-24 md:py-32"
+        style={{ background: "var(--white)" }}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+          {/* Section header */}
+          <div className="text-center mb-14" data-animate>
+            <p
+              className="font-syne font-semibold text-sm uppercase tracking-widest mb-4"
+              style={{ color: "var(--coral)" }}
+            >
+              Why Us
+            </p>
+            <h2
+              className="font-syne font-bold text-4xl md:text-5xl leading-tight"
+              style={{ color: "var(--deep-indigo)" }}
+            >
+              Built for businesses like yours.
+            </h2>
+          </div>
+
+          {/* Table card */}
+          <div
+            className="mx-auto overflow-hidden rounded-[20px]"
+            style={{
+              maxWidth: 820,
+              border: "1px solid var(--card-border)",
+              boxShadow: "0 4px 32px rgba(26, 17, 69, 0.08)",
+            }}
+            data-animate
+            data-delay="100"
+          >
+            {/* Header row */}
+            <div className="table-header">
+              <div
+                className="table-cell font-syne font-bold text-xs uppercase tracking-widest"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Capability
+              </div>
+              <div
+                className="table-cell justify-center font-syne font-bold text-xs uppercase tracking-widest"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Other Agencies
+              </div>
+              {/* PP header — coral text, coral-tinted bg */}
+              <div
+                className="table-cell table-cell-pp justify-center font-syne font-bold text-xs uppercase tracking-widest"
+                style={{ color: "var(--coral)" }}
+              >
+                Pure Publishing
+              </div>
+            </div>
+
+            {/* Data rows */}
+            {TABLE_ROWS.map((row) => (
+              <div key={row.feature} className="table-row">
+                {/* Feature name */}
+                <div
+                  className="table-cell font-nunito text-sm font-semibold"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {row.feature}
+                </div>
+
+                {/* Other agencies cell */}
+                <div className="table-cell justify-center">
+                  {row.other === false ? (
+                    <span
+                      className="font-bold text-lg leading-none"
+                      style={{ color: "#f87171" }}
+                      aria-label="No"
+                    >
+                      ✕
+                    </span>
+                  ) : row.other === true ? (
+                    <span
+                      className="font-bold text-lg leading-none"
+                      style={{ color: "var(--teal)" }}
+                      aria-label="Yes"
+                    >
+                      ✓
+                    </span>
+                  ) : (
+                    <span
+                      className="font-nunito text-sm"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {row.other as string}
+                    </span>
+                  )}
+                </div>
+
+                {/* Pure Publishing cell — always a teal tick */}
+                <div className="table-cell table-cell-pp justify-center">
+                  <span
+                    className="font-bold text-lg leading-none"
+                    style={{ color: "var(--teal)" }}
+                    aria-label="Yes"
+                  >
+                    ✓
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          5. TESTIMONIALS
+      ═══════════════════════════════════════════════════════════ */}
+      <section
+        id="testimonials"
+        className="py-24 md:py-32"
+        style={{ background: "var(--bg-alt)" }}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+          {/* Section header */}
+          <div className="text-center mb-16" data-animate>
+            <p
+              className="font-syne font-semibold text-sm uppercase tracking-widest mb-4"
+              style={{ color: "var(--coral)" }}
+            >
+              What People Say
+            </p>
+            <h2
+              className="font-syne font-bold text-4xl md:text-5xl leading-tight"
+              style={{ color: "var(--deep-indigo)" }}
+            >
+              Real results. Real businesses.
+            </h2>
+          </div>
+
+          {/* Testimonial cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {TESTIMONIALS.map((t, i) => (
+              <div
+                key={t.author}
+                className="testimonial-card p-8 flex flex-col"
+                data-animate
+                data-delay={String((i + 1) * 100)}
+              >
+                {/* Star rating */}
+                <div
+                  className="flex gap-0.5 mb-5 text-xl leading-none"
+                  aria-label="Five stars"
+                  style={{ color: "#f59e0b" }}
+                >
+                  ★★★★★
+                </div>
+
+                {/* Quote — italic, fills remaining height so author sits at bottom */}
+                <blockquote
+                  className="font-nunito text-base leading-relaxed italic flex-1 mb-6"
+                  style={{ color: "var(--text-soft)" }}
+                >
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+
+                {/* Author row */}
+                <div className="flex items-center gap-3">
+                  {/* Avatar circle */}
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-lg flex-shrink-0 select-none"
+                    style={{ background: "var(--bg-alt2)" }}
+                    aria-hidden="true"
+                  >
+                    {t.avatar}
+                  </div>
+                  <div>
+                    <p
+                      className="font-syne font-bold text-sm"
+                      style={{ color: "var(--deep-indigo)" }}
+                    >
+                      {t.author}
+                    </p>
+                    <p
+                      className="font-nunito text-xs mt-0.5"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {t.role}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
