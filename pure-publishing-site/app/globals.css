@@ -130,3 +130,88 @@ video {
     text-wrap: balance;
   }
 }
+
+/* ─────────────────────────────────────────
+   Floating background orbs (hero section)
+───────────────────────────────────────── */
+@keyframes orb-float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-24px, -44px) scale(1.06); }
+}
+@keyframes orb-float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(18px, 36px) scale(0.95); }
+}
+@keyframes orb-float-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-12px, -24px) scale(1.04); }
+  66%       { transform: translate(16px, 20px) scale(0.97); }
+}
+
+/* ─────────────────────────────────────────
+   Hero entrance — plays once on load
+   Apply .hero-item to each element and set
+   animation-delay inline for stagger.
+───────────────────────────────────────── */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-item {
+  opacity: 0;
+  animation: hero-fade-up 0.65s ease forwards;
+}
+
+/* ─────────────────────────────────────────
+   Gradient text (coral → teal)
+───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(90deg, var(--coral) 0%, var(--teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────
+   Pulsing status dots
+───────────────────────────────────────── */
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+  60%       { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+}
+.dot-pulse-green {
+  animation: pulse-green 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-teal {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14, 165, 160, 0.55); }
+  60%       { box-shadow: 0 0 0 6px rgba(14, 165, 160, 0); }
+}
+.dot-pulse-teal {
+  animation: pulse-teal 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ─────────────────────────────────────────
+   Scroll hint — vertical fill line
+───────────────────────────────────────── */
+@keyframes scroll-line-fill {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  45%  { transform: scaleY(1); transform-origin: top; }
+  55%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-fill {
+  animation: scroll-line-fill 1.8s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+   Card glow — cursor-following radial layer
+   Applied via inline style; these classes
+   provide the base surface & transition.
+───────────────────────────────────────── */
+.glow-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glow-card:hover {
+  transform: translateY(-6px);
+}
