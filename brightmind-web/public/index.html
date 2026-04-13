@@ -661,5 +661,203 @@ footer{background:var(--text);padding:4rem 5% 2rem;border-top:1px solid rgba(255
     <span>📍 Hastings, East Sussex</span>
   </div>
 </footer>
+
+<script>
+/* ── HERO REVEAL ── */
+/* hero-ready class is already set in <head> so elements start hidden.
+   Double rAF guarantees we fire after the first paint so transitions play. */
+requestAnimationFrame(function() {
+  requestAnimationFrame(function() {
+    document.querySelectorAll('.hero-animate').forEach(function(el, i) {
+      setTimeout(function() { el.classList.add('in'); }, i * 160);
+    });
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+document.body.classList.add('js-ready');
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-up').forEach(function(el) {
+  var sibs = Array.from(el.parentElement.querySelectorAll('.fade-up'));
+  el.style.transitionDelay = Math.min(sibs.indexOf(el) * 0.07, 0.42) + 's';
+  obs.observe(el);
+});
+window.addEventListener('load', function() {
+  document.querySelectorAll('.fade-up:not(.in)').forEach(function(el) {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+  });
+});
+
+/* ── FAQ ── */
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+  if (!open) item.classList.add('open');
+}
+
+/* ── CARD GLOW ── */
+document.querySelectorAll('.agent-card,.plan-card').forEach(function(card) {
+  card.addEventListener('mousemove', function(e) {
+    var r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+    card.style.setProperty('--my', ((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+  });
+});
+
+/* ── HOW IT WORKS ── */
+var howSteps = document.querySelectorAll('.how-step');
+var howDemos = document.querySelectorAll('.how-demo');
+function activateHow(i) {
+  howSteps.forEach(function(s,j) { s.classList.toggle('active', i===j); });
+  howDemos.forEach(function(d,j) { d.classList.toggle('active', i===j); });
+}
+howSteps.forEach(function(s,i) { s.addEventListener('click', function() { clearInterval(howTimer); activateHow(i); }); });
+var howIdx = 0;
+var howTimer = setInterval(function() { howIdx = (howIdx+1) % howSteps.length; activateHow(howIdx); }, 4000);
+
+/* ── BILLING TOGGLE ── */
+var isAnnual = false;
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  document.getElementById('toggle-btn').classList.toggle('on', isAnnual);
+  document.getElementById('monthly-lbl').classList.toggle('active', !isAnnual);
+  document.getElementById('annual-lbl').classList.toggle('active', isAnnual);
+  document.querySelectorAll('.price-val').forEach(function(el) {
+    el.textContent = '£' + (isAnnual ? el.dataset.annual : el.dataset.monthly);
+  });
+}
+
+/* ── NAV SCROLL ── */
+window.addEventListener('scroll', function() {
+  document.getElementById('main-nav').style.background =
+    window.scrollY > 40 ? 'rgba(255,255,255,0.97)' : 'rgba(255,255,255,0.85)';
+}, { passive: true });
+
+/* ── HAMBURGER ── */
+function toggleMenu() {
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobile-menu');
+  if (ham.classList.contains('open')) {
+    closeMenu();
+  } else {
+    ham.classList.add('open');
+    menu.classList.add('open');
+    ham.setAttribute('aria-expanded','true');
+    document.body.classList.add('menu-open');
+  }
+}
+function closeMenu() {
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobile-menu');
+  ham.classList.remove('open');
+  menu.classList.remove('open');
+  ham.setAttribute('aria-expanded','false');
+  document.body.classList.remove('menu-open');
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+
+/* ── AI DEMO WIDGET ── */
+var bizQuestions = {
+  "Plumber or Tradesperson": { q: "What's the biggest time-drain in your week?", options: ["Answering the same questions over and over","Chasing customers for payment or approval","Writing up quotes and following up","Missed calls when I'm on a job"] },
+  "Restaurant or Café": { q: "What would make the biggest difference?", options: ["Filling more tables / taking more bookings","Saving time on social media and marketing","Handling customer queries automatically","Getting more reviews and responding to them"] },
+  "Hair Salon or Beauty Business": { q: "Where do you lose the most time or money?", options: ["No-shows and last-minute cancellations","Manual booking and reminder messages","Writing content for Instagram and Facebook","Responding to enquiries outside opening hours"] },
+  "Accountant or Solicitor": { q: "What takes up more time than it should?", options: ["Answering routine client queries","Chasing documents from clients","Writing reports, letters, or emails","Following up on leads and proposals"] },
+  "Retail Shop": { q: "What's your biggest challenge right now?", options: ["Getting more customers","Managing customer questions and orders","Creating content and promotions","Following up after a purchase"] },
+  "Fitness or Health Coach": { q: "What would help your business most?", options: ["Booking and managing sessions automatically","Nurturing leads who don't book straight away","Creating content or emails faster","Staying on top of client check-ins"] },
+  "Estate Agent or Letting Agent": { q: "Where does your team spend too much time?", options: ["Answering basic property enquiries","Chasing landlords, tenants, or buyers","Writing property descriptions","Following up with quiet leads"] },
+  "Childcare or Nursery": { q: "What would make your life easier?", options: ["Handling parent enquiries and waiting lists","Sending updates and reminders to parents","Admin and paperwork","Getting more local families to find us"] },
+  "Other small or medium business": { q: "What's the biggest challenge right now?", options: ["Responding to enquiries quickly enough","Too much repetitive admin","Getting new customers and following up","Creating content and marketing materials"] }
+};
+var selectedBiz = '', selectedAnswer = '';
+
+function selectBiz(btn) {
+  selectedBiz = btn.dataset.biz;
+  document.getElementById('demo-step-1').style.display = 'none';
+  document.getElementById('demo-step-2').style.display = 'block';
+  var data = bizQuestions[selectedBiz];
+  document.getElementById('demo-question').textContent = data.q;
+  var wrap = document.getElementById('demo-options');
+  wrap.innerHTML = '';
+  data.options.forEach(function(opt) {
+    var b = document.createElement('button');
+    b.className = 'answer-btn';
+    b.textContent = opt;
+    b.onclick = function() { selectAnswer(opt); };
+    wrap.appendChild(b);
+  });
+}
+
+function selectAnswer(answer) {
+  selectedAnswer = answer;
+  document.getElementById('demo-step-2').style.display = 'none';
+  document.getElementById('demo-step-3').style.display = 'block';
+  document.getElementById('demo-typing').style.display = 'flex';
+  document.getElementById('demo-response-text').style.display = 'none';
+  document.getElementById('demo-ctas').style.display = 'none';
+  document.getElementById('demo-stat').style.display = 'none';
+  callAI();
+}
+
+async function callAI() {
+  var FALLBACK = { message: "Yeah, that's one of the most common things we hear!\n\nAn AI agent can handle this automatically — trained on your business, running 24/7.\n\nMost clients free up hours every week within the first month.", statNum: "4 hrs", statLabel: "saved per week", statSub: "on average for similar businesses" };
+  try {
+    var response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ businessType: selectedBiz, challenge: selectedAnswer })
+    });
+    if (!response.ok) throw new Error('API error');
+    var parsed = await response.json();
+    showResult(parsed.message || FALLBACK.message, parsed.statNum || FALLBACK.statNum, parsed.statLabel || FALLBACK.statLabel, parsed.statSub || FALLBACK.statSub);
+  } catch(e) {
+    showResult(FALLBACK.message, FALLBACK.statNum, FALLBACK.statLabel, FALLBACK.statSub);
+  }
+}
+
+function showResult(text, statNum, statLabel, statSub) {
+  document.getElementById('demo-typing').style.display = 'none';
+  var responseEl = document.getElementById('demo-response-text');
+  responseEl.style.display = 'block';
+  var i = 0;
+  responseEl.textContent = '';
+  function typeChar() {
+    if (i < text.length) {
+      responseEl.textContent += text[i++];
+      setTimeout(typeChar, 18);
+    } else {
+      var statEl = document.getElementById('demo-stat');
+      document.getElementById('demo-stat-num').textContent = statNum;
+      document.getElementById('demo-stat-label').textContent = statLabel;
+      document.getElementById('demo-stat-sub').textContent = statSub;
+      statEl.style.opacity = '0';
+      statEl.style.transform = 'translateY(8px)';
+      statEl.style.transition = 'opacity .45s ease, transform .45s ease';
+      statEl.style.display = 'flex';
+      requestAnimationFrame(function() { requestAnimationFrame(function() {
+        statEl.style.opacity = '1';
+        statEl.style.transform = 'translateY(0)';
+      }); });
+      document.getElementById('demo-ctas').style.display = 'flex';
+    }
+  }
+  typeChar();
+}
+
+function goBack() {
+  document.getElementById('demo-step-2').style.display = 'none';
+  document.getElementById('demo-step-1').style.display = 'block';
+}
+
+function resetDemo() {
+  document.getElementById('demo-step-3').style.display = 'none';
+  document.getElementById('demo-stat').style.display = 'none';
+  document.getElementById('demo-step-1').style.display = 'block';
+}
+</script>
 </body>
 </html>
