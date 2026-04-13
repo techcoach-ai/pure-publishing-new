@@ -363,3 +363,15 @@ video {
   box-shadow: 0 4px 20px rgba(255, 107, 107, 0.18);
   color: var(--coral);
 }
+
+/* ─────────────────────────────────────────
+   Coral pulsing dot — used on inner-page
+   badge pills where green would clash.
+───────────────────────────────────────── */
+@keyframes pulse-coral {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.55); }
+  60%       { box-shadow: 0 0 0 6px rgba(255, 107, 107, 0); }
+}
+.dot-pulse-coral {
+  animation: pulse-coral 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
