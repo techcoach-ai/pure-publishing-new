@@ -29,8 +29,109 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,0.85);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.07);transition:background .3s}
+.nav-logo{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.8rem;color:var(--mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#fff!important;padding:.4rem 1.1rem;border-radius:20px;font-size:.78rem;font-weight:500;transition:opacity .2s!important}
+.nav-cta:hover{opacity:.8}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 5% 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(91,92,246,.09) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 85% 90%,rgba(14,165,160,.07) 0%,transparent 55%),#fff}
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;filter:blur(90px);animation:orbFloat 9s ease-in-out infinite}
+.orb-1{width:600px;height:600px;background:rgba(91,92,246,.07);top:-150px;left:50%;transform:translateX(-55%)}
+.orb-2{width:400px;height:400px;background:rgba(14,165,160,.05);bottom:-50px;right:-80px;animation-delay:-4s}
+.orb-3{width:300px;height:300px;background:rgba(91,92,246,.04);bottom:80px;left:-60px;animation-delay:-7s}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-25px) scale(1.04)}}
+.hero-inner{position:relative;z-index:2;max-width:960px}
+.hero-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(91,92,246,.07);border:1px solid rgba(91,92,246,.2);padding:.4rem 1.1rem;border-radius:50px;margin-bottom:2rem;font-size:.78rem;font-weight:500;color:var(--accent)}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.hero-title{font-size:clamp(3.2rem,8.5vw,7rem);font-weight:700;letter-spacing:-.045em;line-height:1;margin-bottom:1.75rem}
+.hero-title .line1{display:block;color:var(--text)}
+.hero-title .line2{display:block;background:linear-gradient(135deg,var(--accent) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:var(--accent)}
+@supports(-webkit-background-clip:text){.hero-title .line2{color:transparent}}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.3rem);font-weight:300;color:var(--mid);max-width:640px;margin:0 auto 2.75rem;line-height:1.7}
+.hero-sub strong{color:var(--text-soft);font-weight:600}
+.hero-actions{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:.82rem 2rem;border-radius:50px;font-size:.95rem;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;cursor:pointer;border:none;font-family:inherit}
+.btn-glow{background:var(--accent);color:#fff;box-shadow:0 4px 20px var(--accent-glow)}
+.btn-glow:hover{transform:scale(1.04);box-shadow:0 8px 32px var(--accent-glow)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--card-border)}
+.btn-ghost:hover{background:var(--bg-alt);border-color:#c4c6d4}
+.hero-agents{margin-top:3.5rem;display:flex;align-items:center;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.agent-chip{display:flex;align-items:center;gap:.5rem;background:var(--bg-alt);border:1px solid var(--card-border);padding:.45rem .9rem;border-radius:50px;font-size:.78rem;color:var(--mid)}
+.agent-chip .chip-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;flex-shrink:0}
+.agent-chip:nth-child(2) .chip-dot{animation-delay:-.5s}
+.agent-chip:nth-child(3) .chip-dot{animation-delay:-1s}
+.agent-chip:nth-child(4) .chip-dot{animation-delay:-1.5s}
+.hero-animate{opacity:1;transform:none}
+html.hero-ready .hero-animate{opacity:0;transform:translateY(22px);transition:opacity 0.75s ease,transform 0.75s ease}
+html.hero-ready .hero-animate.in{opacity:1;transform:none}
+.scroll-hint{position:absolute;bottom:.75rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.7rem;color:var(--mid);letter-spacing:.1em;text-transform:uppercase;z-index:2}
+.scroll-line{width:1px;height:38px;background:linear-gradient(to bottom,var(--mid),transparent);animation:scrollAnim 2s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.3;transform:scaleY(.4)}}
 </style>
 </head>
 <body id="top">
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#top" class="nav-logo">Bright<span>Mind</span> Digital</a>
+  <ul class="nav-links">
+    <li><a href="#agents">AI Agents</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Book Free Chat</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+    <span class="ham-bar bar-1"></span>
+    <span class="ham-bar bar-2"></span>
+    <span class="ham-bar bar-3"></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-links">
+    <li><a href="#agents" onclick="closeMenu()">AI Agents</a></li>
+    <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+    <li><a href="#how" onclick="closeMenu()">How It Works</a></li>
+    <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+    <li><a href="#contact" onclick="closeMenu()" class="mobile-cta">Book Free Chat →</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-pill hero-animate"><span class="pill-dot"></span> AI Agents for Small &amp; Medium Businesses · Hastings, East Sussex</div>
+    <h1 class="hero-title hero-animate">
+      <span class="line1">Your business,</span>
+      <span class="line2">powered by AI.</span>
+    </h1>
+    <p class="hero-sub hero-animate">We build <strong>custom AI agents</strong> that work for your business around the clock — handling enquiries, automating admin, writing content, and more. <strong>No tech knowledge needed. Ever.</strong></p>
+    <div class="hero-actions hero-animate">
+      <a href="#pricing" class="btn btn-glow">See Plans &amp; Pricing →</a>
+      <a href="#agents" class="btn btn-ghost">Meet the Agents</a>
+    </div>
+    <div class="hero-agents hero-animate">
+      <div class="agent-chip"><span class="chip-dot"></span> Enquiry Agent</div>
+      <div class="agent-chip"><span class="chip-dot"></span> Content Agent</div>
+      <div class="agent-chip"><span class="chip-dot"></span> Booking Agent</div>
+      <div class="agent-chip"><span class="chip-dot"></span> Review Agent</div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
 </body>
 </html>
